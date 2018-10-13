@@ -1,5 +1,6 @@
 package hi.world.hello.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PointF;
@@ -9,7 +10,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText src, des;
     private ListView listview;
     private ListViewAdapter adapter;
-    private ArrayList<TMapPOIItem> arraylist;
 
     // 경로 그리기
     private TMapPOIItem startPOI;
@@ -46,9 +48,12 @@ public class MainActivity extends AppCompatActivity {
     private String srcPoint;
     private String desPoint;
     private String choiceID;
+    private boolean srcInputKeyboard = true;
+    private boolean desInputKeyborad = true;
 
     // 검색 버튼
     private Button btn;
+    private InputMethodManager imm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +65,10 @@ public class MainActivity extends AppCompatActivity {
 
         // 지도 그리기
         linearLayoutTmap = (LinearLayout)findViewById(R.id.linearLayoutTmap);
+        tMapView.setSKTMapApiKey("056a056a-7ffc-49cf-8836-d8ce2e053f76\n");
         drawMap(tMapView);
 
-        tMapView.setSKTMapApiKey("056a056a-7ffc-49cf-8836-d8ce2e053f76\n");
+        imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
         src = (EditText)findViewById(R.id.startPoint);
         des = (EditText)findViewById(R.id.endPoint);
@@ -87,13 +93,16 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {  }
             @Override
             public void afterTextChanged(Editable editable) {
-                choiceID = "src";
-                // POI data 검색
-                srcPoint = src.getText().toString();
-                makePOIList(tMapData, srcPoint);
+                if (srcInputKeyboard) {    // 키보드 입력이면 자동검색 실행
+                    choiceID = "src";
+                    // POI data 검색
+                    srcPoint = src.getText().toString();
+                    makePOIList(tMapData, srcPoint);
+                }
             }
         });
 
+        // EditText 바뀔 때마다 검색 자동으로
         des.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {  }
@@ -101,10 +110,12 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {  }
             @Override
             public void afterTextChanged(Editable editable) {
-                choiceID = "des";
-                // POI data 검색
-                desPoint = des.getText().toString();
-                makePOIList(tMapData, desPoint);
+                if (desInputKeyborad) {    // 키보드 입력이면 자동검색 실행
+                    choiceID = "des";
+                    // POI data 검색
+                    desPoint = des.getText().toString();
+                    makePOIList(tMapData, desPoint);
+                }
             }
         });
 
@@ -113,12 +124,16 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 switch(choiceID){
                     case "src":
+                        Log.i("srcInputKeyboard", "false" );
+                        srcInputKeyboard = false;
                         startPOI = list.get(position);
                         src.setText(startPOI.getPOIName().toString());
                         list.clear();
                         adapter.notifyDataSetChanged();
                         break;
                     case "des":
+                        Log.i("desInputKeyboard", "false" );
+                        desInputKeyborad = false;
                         endPOI = list.get(position);
                         des.setText(endPOI.getPOIName().toString());
                         list.clear();
@@ -132,19 +147,41 @@ public class MainActivity extends AppCompatActivity {
         // SKT타워(출발지)
         // N서울타워(목적지)
 
+        src.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    Log.i("srcInputKeyboard", "true");
+                    srcInputKeyboard = true;
+                }
+                return false;
+            }
+        });
+        des.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    Log.i("desInputKeyboard", "true");
+                    desInputKeyborad = true;
+                }
+                return false;
+            }
+        });
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
+                    tMapView.setCenterPoint(startPOI.getPOIPoint().getLongitude(), startPOI.getPOIPoint().getLatitude(), true);
                     drawPath(tMapView, startPOI, endPOI);
+                    hideKeyboard();
                     Toast.makeText(getApplicationContext(), startPOI.getPOIAddress().toString() + "부터 " + endPOI.getPOIAddress().toString() + "까지 ", Toast.LENGTH_SHORT).show();
                 }catch(Exception e){
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "출발지와 목적지를 입력해주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "출발지와 목적지를 입력하고 선택해주세요", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
 
     }
 
@@ -164,8 +201,10 @@ public class MainActivity extends AppCompatActivity {
      * @param endPoint      목적지
      */
     public void drawPath(final TMapView tMapView, TMapPOIItem startPoint, TMapPOIItem endPoint) {
+
         final TMapPoint start = new TMapPoint(startPoint.getPOIPoint().getLatitude(), startPoint.getPOIPoint().getLongitude());
         final TMapPoint end = new TMapPoint(endPoint.getPOIPoint().getLatitude(), endPoint.getPOIPoint().getLongitude());
+
         new Thread(new Runnable(){
             @Override
             public void run(){
@@ -190,13 +229,10 @@ public class MainActivity extends AppCompatActivity {
     private void makePOIList(final TMapData tMapData, final String searchPoint){
         // 리스트 초기화
         list.clear();
-
         // 검색된 리스트 추가
         findPOI(tMapData, searchPoint);
 
-        Log.d("TEST", "notifyDataSetChanged 호출");
         adapter.notifyDataSetChanged();
-
     }
 
     /**
@@ -210,15 +246,31 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFindAllPOI(ArrayList poiItem) {
                 for (int i = 0; i < poiItem.size(); i++) {
-                    TMapPOIItem item = (TMapPOIItem) poiItem.get(i);
-                    list.add(item);
+                    final TMapPOIItem item = (TMapPOIItem) poiItem.get(i);
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            list.add(item);
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
 
                     Log.d("POI Name: ", item.getPOIName().toString() + ", " +
                             "Address: " + item.getPOIAddress().replace("null", "") + ", " +
                             "Point: " + item.getPOIPoint().toString());
+
                 }
             }
         });
     }
 
+    /**
+     * @brief 키보드 내리기
+     */
+    private void hideKeyboard()
+    {
+        imm.hideSoftInputFromWindow(src.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(des.getWindowToken(), 0);
+    }
 }

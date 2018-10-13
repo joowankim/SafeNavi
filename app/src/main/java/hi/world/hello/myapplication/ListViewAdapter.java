@@ -43,7 +43,6 @@ public class ListViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-        Log.i("TEST", "getView 호출");
         if (convertView == null){
             convertView = inflate.inflate(R.layout.custom_listview, null);
 
