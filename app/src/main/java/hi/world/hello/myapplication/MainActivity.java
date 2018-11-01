@@ -1,14 +1,28 @@
 package hi.world.hello.myapplication;
 
+import android.Manifest;
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.PointF;
 
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Build;
+import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.JsonReader;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,6 +35,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.skt.Tmap.TMapData;
+import com.skt.Tmap.TMapGpsManager;
 import com.skt.Tmap.TMapMarkerItem;
 import com.skt.Tmap.TMapPOIItem;
 import com.skt.Tmap.TMapPoint;
@@ -28,13 +43,21 @@ import com.skt.Tmap.TMapPolyLine;
 import com.skt.Tmap.TMapTapi;
 import com.skt.Tmap.TMapView;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
     // 지도
     private LinearLayout linearLayoutTmap;
+    private TMapView tMapView;
 
     // 검색 리스트
     private List<TMapPOIItem> list;
@@ -48,16 +71,20 @@ public class MainActivity extends AppCompatActivity {
     private String srcPoint;
     private String desPoint;
     private String choiceID;
-    private boolean srcInputKeyboard = true;
+//    private boolean srcInputKeyboard = true;
     private boolean desInputKeyborad = true;
+    private TMapPoint myLocation;
 
     // 검색 버튼
-    private Button btn;
+    private Button searchBtn;
     private InputMethodManager imm;
+
+    // 길찾기 종료 버튼
+    private Button stopBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final TMapView tMapView = new TMapView(this);
+        tMapView = new TMapView(this);
         final TMapData tMapData = new TMapData();
 
         super.onCreate(savedInstanceState);
@@ -70,37 +97,42 @@ public class MainActivity extends AppCompatActivity {
 
         imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
-        src = (EditText)findViewById(R.id.startPoint);
+//        src = (EditText)findViewById(R.id.startPoint);
         des = (EditText)findViewById(R.id.endPoint);
-        btn = (Button)findViewById(R.id.btn);
-
+        searchBtn = (Button)findViewById(R.id.btn);
+        stopBtn = (Button)findViewById(R.id.stop);
         listview = (ListView) findViewById(R.id.listview1);
 
-        //list 생성
-        list = new ArrayList<TMapPOIItem>();
-
+        // list 생성
         // 리스트에 연동될 adapter를 생성
-        adapter = new ListViewAdapter(list, this);
-
         // 리스트뷰에 adapter를 연결
+        list = new ArrayList<TMapPOIItem>();
+        adapter = new ListViewAdapter(list, this);
         listview.setAdapter(adapter);
 
-        // EditText 바뀔 때마다 검색 자동으로
-        src.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {  }
-            @Override
-            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {  }
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (srcInputKeyboard) {    // 키보드 입력이면 자동검색 실행
-                    choiceID = "src";
-                    // POI data 검색
-                    srcPoint = src.getText().toString();
-                    makePOIList(tMapData, srcPoint);
-                }
-            }
-        });
+        // 내 위치를 지도에 표시할 것인지 결정 (파란색 원)
+        tMapView.setIconVisibility(true);
+        // 마시멜로우(sdk 23) 이상에서 gps 사용할 때 권한 허가 받기
+        fn_permission();
+
+        setGps();
+
+        // EditText 바뀔 때마다 자동으로 검색
+//        src.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {  }
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {  }
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//                if (srcInputKeyboard) {    // 키보드 입력이면 자동검색 실행
+//                    choiceID = "src";
+//                    // POI data 검색
+//                    srcPoint = src.getText().toString();
+//                    makePOIList(tMapData, srcPoint);
+//                }
+//            }
+//        });
 
         // EditText 바뀔 때마다 검색 자동으로
         des.addTextChangedListener(new TextWatcher() {
@@ -119,20 +151,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 자동 검색 목록 중에 선택된 아이템이 있을 때
+        // 해당 아이템으로 EditText 내용을 바꿔준다
+        // 그리고 검색 리스트는 모두 지워 화면에 나타나지 않게 한다
+        // 이때 setText는 addTextChangedListener가 반응하지 않도록
+        // keyboard flag를 false로 바꿔준다
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 switch(choiceID){
-                    case "src":
-                        Log.i("srcInputKeyboard", "false" );
-                        srcInputKeyboard = false;
-                        startPOI = list.get(position);
-                        src.setText(startPOI.getPOIName().toString());
-                        list.clear();
-                        adapter.notifyDataSetChanged();
-                        break;
+//                    case "src":
+//                        srcInputKeyboard = false;
+//                        startPOI = list.get(position);
+//                        src.setText(startPOI.getPOIName().toString());
+//                        list.clear();
+//                        adapter.notifyDataSetChanged();
+//                        break;
                     case "des":
-                        Log.i("desInputKeyboard", "false" );
                         desInputKeyborad = false;
                         endPOI = list.get(position);
                         des.setText(endPOI.getPOIName().toString());
@@ -142,53 +177,62 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        // 경로 표시
-        // SKT타워(출발지)
-        // N서울타워(목적지)
-
-        src.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    Log.i("srcInputKeyboard", "true");
-                    srcInputKeyboard = true;
-                }
-                return false;
-            }
-        });
+        // EditText가 터치될 때만 addTextChangedListener가 반응하도록 flag를 변경
+//        src.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent event) {
+//                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//                    srcInputKeyboard = true;
+//                }
+//                return false;
+//            }
+//        });
+        // EditText가 터치될 때만 addTextChangedListener가 반응하도록 flag를 변경
         des.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    Log.i("desInputKeyboard", "true");
                     desInputKeyborad = true;
                 }
                 return false;
             }
         });
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        // 검색 버튼 눌렀을 때
+        searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    tMapView.setCenterPoint(startPOI.getPOIPoint().getLongitude(), startPOI.getPOIPoint().getLatitude(), true);
-                    drawPath(tMapView, startPOI, endPOI);
+                try {   // 화면 중심 출발지로 이동, 경로 표시, 키보드 내림
+                    //tMapView.setCenterPoint(startPOI.getPOIPoint().getLongitude(), startPOI.getPOIPoint().getLatitude(), true);
+                    tMapView.setCenterPoint(myLocation.getLongitude(), myLocation.getLatitude(), true);
+                    if (endPOI != null) {
+                        //drawPath(tMapData, tMapView, startPOI, endPOI);
+                        drawPath(tMapView, endPOI);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "목적지를 입력해주세요", Toast.LENGTH_SHORT).show();
+                    }
                     hideKeyboard();
-                    Toast.makeText(getApplicationContext(), startPOI.getPOIAddress().toString() + "부터 " + endPOI.getPOIAddress().toString() + "까지 ", Toast.LENGTH_SHORT).show();
                 }catch(Exception e){
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "출발지와 목적지를 입력하고 선택해주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "현재 위치를 탐색중입니다", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        // gps 서비스 종료 버튼
+        stopBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(), searchDirection.class);
+                stopService(intent);
             }
         });
 
     }
 
-
     /**
      * @brief 지도 그리기
-    * @param tMapView
+     * @param tMapView
      */
     public void drawMap(final TMapView tMapView){
         linearLayoutTmap.addView(tMapView);
@@ -197,22 +241,27 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @brief 지도에 경로를 그려준다
      * @param tMapView      현재 보여지는 지도
-     * @param startPoint    출발지
      * @param endPoint      목적지
      */
-    public void drawPath(final TMapView tMapView, TMapPOIItem startPoint, TMapPOIItem endPoint) {
+    public void drawPath(final TMapView tMapView, TMapPOIItem endPoint) {
 
-        final TMapPoint start = new TMapPoint(startPoint.getPOIPoint().getLatitude(), startPoint.getPOIPoint().getLongitude());
+        //final TMapPoint start = new TMapPoint(startPoint.getPOIPoint().getLatitude(), startPoint.getPOIPoint().getLongitude());
         final TMapPoint end = new TMapPoint(endPoint.getPOIPoint().getLatitude(), endPoint.getPOIPoint().getLongitude());
+
+        Intent intent = new Intent(getApplicationContext(), searchDirection.class);
+        intent.putExtra("desLa", endPoint.getPOIPoint().getLatitude());
+        intent.putExtra("desLo", endPoint.getPOIPoint().getLongitude());
+        startService(intent);
 
         new Thread(new Runnable(){
             @Override
             public void run(){
                 try{
-                    TMapPolyLine tMapPolyLine = new TMapData().findPathData(start, end);
+                    TMapPolyLine tMapPolyLine = new TMapData().findPathDataWithType(TMapData.TMapPathType.PEDESTRIAN_PATH, myLocation, end);
                     tMapPolyLine.setLineColor(Color.BLUE);
                     tMapPolyLine.setLineWidth(2);
                     tMapView.addTMapPolyLine("Line1", tMapPolyLine);
+
                 }catch(Exception e){
                     e.printStackTrace();
                 }
@@ -231,7 +280,6 @@ public class MainActivity extends AppCompatActivity {
         list.clear();
         // 검색된 리스트 추가
         findPOI(tMapData, searchPoint);
-
         adapter.notifyDataSetChanged();
     }
 
@@ -270,7 +318,77 @@ public class MainActivity extends AppCompatActivity {
      */
     private void hideKeyboard()
     {
-        imm.hideSoftInputFromWindow(src.getWindowToken(), 0);
+//        imm.hideSoftInputFromWindow(src.getWindowToken(), 0);
         imm.hideSoftInputFromWindow(des.getWindowToken(), 0);
     }
+
+    /**
+     * 위치 바뀔 때 myLocation update
+     */
+    private final LocationListener mLocationListener = new LocationListener() {
+        public void onLocationChanged(Location location) {
+
+            //현재위치의 좌표를 알수있는 부분
+            if (location != null) {
+                double latitude = location.getLatitude();
+                double longitude = location.getLongitude();
+
+                myLocation = new TMapPoint(latitude, longitude);
+
+                tMapView.setLocationPoint(longitude, latitude);
+                tMapView.setCenterPoint(longitude, latitude);
+
+                Log.d("TmapTest",""+longitude+","+latitude);
+            } else {
+                Toast.makeText(getApplicationContext(), "현재 위치를 찾고 있습니다", Toast.LENGTH_LONG).show();
+            }
+
+        }
+
+        public void onProviderDisabled(String provider) {
+        }
+
+        public void onProviderEnabled(String provider) {
+        }
+
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+        }
+    };
+
+    /**
+     * 위치정보 접근 권한 허가 받기
+     */
+    public void setGps(){
+        final LocationManager lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        }
+        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 1, mLocationListener);
+
+    }
+
+    private void fn_permission() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            }
+            return;
+        }
+    }
+
+    public Boolean isLaunchingService(Context mContext){
+
+        ActivityManager manager = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
+
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (searchDirection.class.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+
+        return  false;
+    }
+
 }
