@@ -35,6 +35,22 @@
         android:layout_height="wrap_content"
         android:text="stop"/>
 
+    <Button
+        android:id="@+id/btnConnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="연결" />
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="보내기"/>
+    <Button
+        android:id="@+id/btnGuide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="길 안내"/>
+
     <LinearLayout
         android:id="@+id/linearLayoutTmap"
         android:layout_width="match_parent"

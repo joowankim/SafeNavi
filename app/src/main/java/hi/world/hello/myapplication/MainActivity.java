@@ -2,27 +2,21 @@ package hi.world.hello.myapplication;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.ActivityManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.PointF;
 
-import android.location.Geocoder;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Build;
-import android.preference.PreferenceManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.JsonReader;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,23 +29,13 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.skt.Tmap.TMapData;
-import com.skt.Tmap.TMapGpsManager;
-import com.skt.Tmap.TMapMarkerItem;
 import com.skt.Tmap.TMapPOIItem;
 import com.skt.Tmap.TMapPoint;
 import com.skt.Tmap.TMapPolyLine;
-import com.skt.Tmap.TMapTapi;
 import com.skt.Tmap.TMapView;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,17 +45,14 @@ public class MainActivity extends AppCompatActivity {
 
     // 검색 리스트
     private List<TMapPOIItem> list;
-    private EditText src, des;
+    private EditText des;
     private ListView listview;
     private ListViewAdapter adapter;
 
     // 경로 그리기
-    private TMapPOIItem startPOI;
     private TMapPOIItem endPOI;
-    private String srcPoint;
     private String desPoint;
     private String choiceID;
-//    private boolean srcInputKeyboard = true;
     private boolean desInputKeyborad = true;
     private TMapPoint myLocation;
 
@@ -81,6 +62,36 @@ public class MainActivity extends AppCompatActivity {
 
     // 길찾기 종료 버튼
     private Button stopBtn;
+
+    // GPS
+    private final int PERMISSIONS_ACCESS_FINE_LOCATION = 1000;
+    private final int PERMISSIONS_ACCESS_COARSE_LOCATION = 1001;
+    private boolean isAccessFineLocation = false;
+    private boolean isAccessCoarseLocation = false;
+    private boolean isPermission = false;
+
+    // GPS Tracker class
+    private GpsService gps;
+
+    // Intent request code
+    private static final int REQUEST_CONNECT_DEVICE = 1;
+    private static final int REQUEST_ENABLE_BT = 2;
+
+    // bluetooth service
+    private MessageHandler msgService = null;
+    private BluetoothService btService = null;
+    private Button connectBtn;
+    private Button sendBtn;
+    private final Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+        }
+    };
+
+    // road guide
+    private Button guideBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,9 +106,42 @@ public class MainActivity extends AppCompatActivity {
         tMapView.setSKTMapApiKey("056a056a-7ffc-49cf-8836-d8ce2e053f76\n");
         drawMap(tMapView);
 
+        // BluetoothService 클래스 생성
+        if (btService == null) {
+            btService = new BluetoothService(this, mHandler);
+        }
+        if (msgService == null) {
+            msgService = new MessageHandler(this, btService);
+        }
+
+
+        // Bluetooth 연결 버튼
+        connectBtn = (Button)findViewById(R.id.btnConnect);
+        connectBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (btService.getDeviceState()) {
+                    // 블루투스가 지원 가능한 기기일 때
+                    btService.enableBluetooth();
+                } else {
+                    finish();
+                }
+            }
+        });
+
+        // Bluetooth 보내기 버튼
+        sendBtn = (Button)findViewById(R.id.btnSend);
+        sendBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String msg = "CONNECTED";
+                msgService.sendMessage(msg);
+            }
+        });
+
+        // keyboard 매니저
         imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
-//        src = (EditText)findViewById(R.id.startPoint);
         des = (EditText)findViewById(R.id.endPoint);
         searchBtn = (Button)findViewById(R.id.btn);
         stopBtn = (Button)findViewById(R.id.stop);
@@ -113,26 +157,25 @@ public class MainActivity extends AppCompatActivity {
         // 내 위치를 지도에 표시할 것인지 결정 (파란색 원)
         tMapView.setIconVisibility(true);
         // 마시멜로우(sdk 23) 이상에서 gps 사용할 때 권한 허가 받기
-        fn_permission();
+        callPermission();
 
-        setGps();
+        // GPS 권한 요청
+        if (!isPermission) {
+            callPermission();
+            return;
+        }
 
-        // EditText 바뀔 때마다 자동으로 검색
-//        src.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {  }
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {  }
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                if (srcInputKeyboard) {    // 키보드 입력이면 자동검색 실행
-//                    choiceID = "src";
-//                    // POI data 검색
-//                    srcPoint = src.getText().toString();
-//                    makePOIList(tMapData, srcPoint);
-//                }
-//            }
-//        });
+        gps = new GpsService(MainActivity.this, msgService);
+        // GPS 사용 유무 가져오기
+        if (gps.isGetLocation()){
+            myLocation = new TMapPoint(gps.getLatitude(), gps.getLongitude());
+            tMapView.setCenterPoint(myLocation.getLongitude(), myLocation.getLatitude());
+            tMapView.setLocationPoint(myLocation.getLongitude(), myLocation.getLatitude());
+        } else {
+            // GPS 사용할수 없음
+            gps.showSettingAlert();
+        }
+
 
         // EditText 바뀔 때마다 검색 자동으로
         des.addTextChangedListener(new TextWatcher() {
@@ -160,13 +203,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 switch(choiceID){
-//                    case "src":
-//                        srcInputKeyboard = false;
-//                        startPOI = list.get(position);
-//                        src.setText(startPOI.getPOIName().toString());
-//                        list.clear();
-//                        adapter.notifyDataSetChanged();
-//                        break;
                     case "des":
                         desInputKeyborad = false;
                         endPOI = list.get(position);
@@ -177,16 +213,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        // EditText가 터치될 때만 addTextChangedListener가 반응하도록 flag를 변경
-//        src.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent event) {
-//                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-//                    srcInputKeyboard = true;
-//                }
-//                return false;
-//            }
-//        });
+
         // EditText가 터치될 때만 addTextChangedListener가 반응하도록 flag를 변경
         des.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -202,11 +229,10 @@ public class MainActivity extends AppCompatActivity {
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {   // 화면 중심 출발지로 이동, 경로 표시, 키보드 내림
-                    //tMapView.setCenterPoint(startPOI.getPOIPoint().getLongitude(), startPOI.getPOIPoint().getLatitude(), true);
+                try {
+                    // 화면 중심 출발지로 이동, 경로 표시, 키보드 내림
                     tMapView.setCenterPoint(myLocation.getLongitude(), myLocation.getLatitude(), true);
                     if (endPOI != null) {
-                        //drawPath(tMapData, tMapView, startPOI, endPOI);
                         drawPath(tMapView, endPOI);
                     } else {
                         Toast.makeText(getApplicationContext(), "목적지를 입력해주세요", Toast.LENGTH_SHORT).show();
@@ -223,11 +249,31 @@ public class MainActivity extends AppCompatActivity {
         stopBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), searchDirection.class);
-                stopService(intent);
+                gps.stopUsingGPS();
             }
         });
 
+        // 길 안내 버튼
+        guideBtn = (Button)findViewById(R.id.btnGuide);
+        guideBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("BluetoothState", "" + msgService.getmBluetoothService().getState() + ", " + BluetoothService.STATE_CONNECTED);
+
+                if (msgService.getmBluetoothService().getState() == BluetoothService.STATE_CONNECTED) {
+                    if (endPOI != null) {
+                        Log.i("guideBtn", "bluetooth is connected");
+                        TMapPoint end = new TMapPoint(endPOI.getPOIPoint().getLatitude(), endPOI.getPOIPoint().getLongitude());
+                        String message = gps.updateGuide(end);
+                        msgService.sendMessage(message);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "목적지를 입력해주세요", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Log.i("guideBtn", "bluetooth is not connected");
+                }
+            }
+        });
     }
 
     /**
@@ -245,19 +291,15 @@ public class MainActivity extends AppCompatActivity {
      */
     public void drawPath(final TMapView tMapView, TMapPOIItem endPoint) {
 
-        //final TMapPoint start = new TMapPoint(startPoint.getPOIPoint().getLatitude(), startPoint.getPOIPoint().getLongitude());
         final TMapPoint end = new TMapPoint(endPoint.getPOIPoint().getLatitude(), endPoint.getPOIPoint().getLongitude());
 
-        Intent intent = new Intent(getApplicationContext(), searchDirection.class);
-        intent.putExtra("desLa", endPoint.getPOIPoint().getLatitude());
-        intent.putExtra("desLo", endPoint.getPOIPoint().getLongitude());
-        startService(intent);
+        gps.setDest(myLocation, end);
 
         new Thread(new Runnable(){
             @Override
             public void run(){
                 try{
-                    TMapPolyLine tMapPolyLine = new TMapData().findPathDataWithType(TMapData.TMapPathType.PEDESTRIAN_PATH, myLocation, end);
+                    TMapPolyLine tMapPolyLine = new TMapData().findPathDataWithType(TMapData.TMapPathType.CAR_PATH, myLocation, end);
                     tMapPolyLine.setLineColor(Color.BLUE);
                     tMapPolyLine.setLineWidth(2);
                     tMapView.addTMapPolyLine("Line1", tMapPolyLine);
@@ -318,77 +360,97 @@ public class MainActivity extends AppCompatActivity {
      */
     private void hideKeyboard()
     {
-//        imm.hideSoftInputFromWindow(src.getWindowToken(), 0);
         imm.hideSoftInputFromWindow(des.getWindowToken(), 0);
     }
 
-    /**
-     * 위치 바뀔 때 myLocation update
-     */
-    private final LocationListener mLocationListener = new LocationListener() {
-        public void onLocationChanged(Location location) {
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
 
-            //현재위치의 좌표를 알수있는 부분
-            if (location != null) {
-                double latitude = location.getLatitude();
-                double longitude = location.getLongitude();
-
-                myLocation = new TMapPoint(latitude, longitude);
-
-                tMapView.setLocationPoint(longitude, latitude);
-                tMapView.setCenterPoint(longitude, latitude);
-
-                Log.d("TmapTest",""+longitude+","+latitude);
-            } else {
-                Toast.makeText(getApplicationContext(), "현재 위치를 찾고 있습니다", Toast.LENGTH_LONG).show();
-            }
-
+        if (requestCode == PERMISSIONS_ACCESS_FINE_LOCATION && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            isAccessFineLocation = true;
+        } else if (requestCode == PERMISSIONS_ACCESS_COARSE_LOCATION && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            isAccessCoarseLocation = true;
         }
 
-        public void onProviderDisabled(String provider) {
+        if (isAccessFineLocation && isAccessCoarseLocation) {
+            isPermission = true;
         }
+    }
 
-        public void onProviderEnabled(String provider) {
+    private void callPermission() {
+        // Check the SDK version and whether the permission is already granted or not
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissions(
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    PERMISSIONS_ACCESS_FINE_LOCATION);
         }
+        else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
 
-        public void onStatusChanged(String provider, int status, Bundle extras) {
+            requestPermissions(
+                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                    PERMISSIONS_ACCESS_COARSE_LOCATION);
+        } else {
+            isPermission = true;
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // action 이름이 "myLocation"으로 정의된 intent를 수신한다
+        // observer의 이름은 mMessageReceiver이다
+        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver, new IntentFilter("myLocation"));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
+    }
+
+    // Our handler for received Intents. This will be called whenever an Intent
+    // with an action named "myLocation" is broadcasted
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // Get extra data included in the Intent
+            double la = intent.getDoubleExtra("latitude", Double.MIN_VALUE);
+            double lo = intent.getDoubleExtra("longitude", Double.MIN_VALUE);
+
+            myLocation.setLatitude(la);
+            myLocation.setLongitude(lo);
+            tMapView.setLocationPoint(myLocation.getLongitude(), myLocation.getLatitude());
+
+            Log.d("receiver", "location: " + la + ", " + lo);
+            Toast.makeText(getApplicationContext(), "현재 위치 : " + la + ", " + lo, Toast.LENGTH_SHORT).show();
         }
     };
 
-    /**
-     * 위치정보 접근 권한 허가 받기
-     */
-    public void setGps(){
-        final LocationManager lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        Log.d("onActivityResult", "" + resultCode);
+        switch (requestCode) {
+            case REQUEST_CONNECT_DEVICE:
+                // When DeviceListActivity returns with a device to connect
+                if (resultCode == Activity.RESULT_OK) {
+                    btService.getDeviceInfo(data);
+                }
+                break;
+            case REQUEST_ENABLE_BT:
+                // When the request to enable Bluetooth returns
+                if (resultCode == Activity.RESULT_OK) {
+                    // 확인 눌렀을 때 취할 행동
+                    btService.scanDevice();
+                } else {
+                    // 취소 눌렀을 때 취할 행동
+                    Log.d("BluetoothService", "Bluetooth is not enabled");
+                }
+                break;
         }
-        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 1, mLocationListener);
-
-    }
-
-    private void fn_permission() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-            }
-            return;
-        }
-    }
-
-    public Boolean isLaunchingService(Context mContext){
-
-        ActivityManager manager = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
-
-        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-            if (searchDirection.class.getName().equals(service.service.getClassName())) {
-                return true;
-            }
-        }
-
-        return  false;
     }
 
 }
