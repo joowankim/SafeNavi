@@ -135,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // BTText
+        // 블루투스 데모용
         BTText = (EditText)findViewById(R.id.BTText);
 
         // Bluetooth 보내기 버튼
