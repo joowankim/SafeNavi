@@ -40,6 +40,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="연결" />
+    <EditText
+        android:id="@+id/BTText"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+    </EditText>
     <Button
         android:id="@+id/btnSend"
         android:layout_width="match_parent"

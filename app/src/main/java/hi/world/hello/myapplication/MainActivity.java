@@ -93,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
     private Button guideBtn;
 
 
+    // 나중에 삭제함
+    // bluetooth용 editText
+    private EditText BTText;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         tMapView = new TMapView(this);
@@ -129,12 +134,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // BTText
+        BTText = (EditText)findViewById(R.id.BTText);
+
         // Bluetooth 보내기 버튼
         sendBtn = (Button)findViewById(R.id.btnSend);
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String msg = "CONNECTED";
+                String msg = BTText.getText().toString();
                 msgService.sendMessage(msg);
             }
         });
