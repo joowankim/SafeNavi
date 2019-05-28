@@ -36,28 +36,28 @@ public class GpsService extends Service implements LocationListener {
     private static final String TAG = "GPS_TEST";
 
     private TMapData tMapData = new TMapData();
-    private TMapPoint myLocation = null;   // 현 위치 좌표
-    private TMapPoint end = null;           // 목적지 좌표
+    private TMapPoint myLocation = null;    // current location
+    private TMapPoint end = null;           // target location
 
-    // 위치 바뀔 때마다 블루투스 통신
+    // whenever changing location, trying bluetooth communication
     private MessageHandler mMessageHandler = null;
 
-    // 현재 GPS 사용유무
+    // GPS ON/OFF
     boolean isGPSEnabled = false;
 
-    // 네트워크 사용유무
+    // network ON/OFF
     boolean isNetworkEnabled = false;
 
-    // GPS 상태값
+    // current state of GPS
     boolean isGetLocation = false;
 
     Location location;
-    double lat; // 위도
-    double lon; // 경도
+    double lat; // latitude
+    double lon; // longitude
 
-    // 최소 GPS 정보 업데이트 거리 10미터
+    // minimum distance for updating GPS information : 10m
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
-    // 최소 GPS 정보 업데이트 시간 밀리세컨이므로 1초
+    // minimum time for updating GPS information : 1 second
     private static final long MIN_TIME_BW_UPDATES = 1000 * 1;
 
     protected LocationManager locationManager;
@@ -86,10 +86,10 @@ public class GpsService extends Service implements LocationListener {
         try {
             locationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);
 
-            // GPS 정보 가져오기
+            // getting GPS information
             isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
-            // 현재 네트워크 상태 값 알아오기
+            // getting current network state value
             isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
             if (!isGPSEnabled && !isNetworkEnabled) {
