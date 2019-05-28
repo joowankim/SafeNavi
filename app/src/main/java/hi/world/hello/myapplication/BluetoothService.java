@@ -35,12 +35,12 @@ public class BluetoothService {
     private Activity mActivity;
     private Handler mHandler;
 
-    private ConnectThread mConnectThread; // 변수명 다시
-    private ConnectedThread mConnectedThread; // 변수명 다시
+    private ConnectThread mConnectThread; 
+    private ConnectedThread mConnectedThread; 
 
     private int mState;
 
-    // 상태를 나타내는 상태 변수
+    // variables for states of bluetooth
     public static final int STATE_NONE = 0; // we're doing nothing
     public static final int STATE_LISTEN = 1; // now listening for incoming
     // connections
@@ -54,7 +54,7 @@ public class BluetoothService {
         mActivity = ac;
         mHandler = h;
 
-        // BluetoothAdapter 얻기
+        // get BluetoothAdapter
         btAdapter = BluetoothAdapter.getDefaultAdapter();
     }
 
@@ -89,13 +89,13 @@ public class BluetoothService {
         Log.i(TAG, "Check the enabled Bluetooth");
 
         if (btAdapter.isEnabled()) {
-            // 기기의 블루투스 상태가 On인 경우
+            // bluetooth state of device is ON
             Log.d(TAG, "Bluetooth Enable Now");
 
             // Next Step
             scanDevice();
         } else {
-            // 기기의 블루투스 상태가 Off인 경우
+            // bluetooth state of device is OFF
             Log.d(TAG, "Bluetooth Enable Request");
 
             Intent i = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -160,7 +160,7 @@ public class BluetoothService {
         }
     }
 
-    // ConnectThread 초기화 device의 모든 연결 제거
+    // Initialize ConnectThread (remove connection of device)
     public synchronized void connect(BluetoothDevice device) {
         Log.d(TAG, "connect to: " + device);
 
@@ -189,7 +189,7 @@ public class BluetoothService {
         setState(STATE_CONNECTING);
     }
 
-    // ConnectedThread 초기화
+    // Initialize ConnectedThread
     public synchronized void connected(BluetoothSocket socket,
                                        BluetoothDevice device) {
         Log.d(TAG, "connected");
@@ -217,7 +217,7 @@ public class BluetoothService {
         setState(STATE_CONNECTED);
     }
 
-    // 모든 thread stop
+    // all thread stop
     public synchronized void stop() {
         Log.d(TAG, "stop");
 
@@ -234,7 +234,7 @@ public class BluetoothService {
         setState(STATE_NONE);
     }
 
-    // 값을 쓰는 부분(보내는 부분)
+    // writing values (sending part)
     public void write(byte[] out) { // Create temporary object
         ConnectedThread r; // Synchronize a copy of the ConnectedThread
         synchronized (this) {
@@ -245,12 +245,12 @@ public class BluetoothService {
         r.write(out);
     }
 
-    // 연결 실패했을때
+    // connection failed
     private void connectionFailed() {
         setState(STATE_LISTEN);
     }
 
-    // 연결을 잃었을 때
+    // connection lost
     private void connectionLost() {
         setState(STATE_LISTEN);
 
@@ -283,7 +283,7 @@ public class BluetoothService {
              * block e.printStackTrace(); } } catch (IOException e) { } /
              */
 
-            // 디바이스 정보를 얻어서 BluetoothSocket 생성
+            // create BluetoothSocket using device information
             try {
                 tmp = device.createRfcommSocketToServiceRecord(MY_UUID);
             } catch (IOException e) {
@@ -296,21 +296,21 @@ public class BluetoothService {
             Log.i(TAG, "BEGIN mConnectThread");
             setName("ConnectThread");
 
-            // 연결을 시도하기 전에는 항상 기기 검색을 중지한다.
-            // 기기 검색이 계속되면 연결속도가 느려지기 때문이다.
+            // stop device searching before trying connection
+            // to prevent connection to be slower by searching deivices
             btAdapter.cancelDiscovery();
 
-            // BluetoothSocket 연결 시도
+            // try BluetoothSocket connection
             try {
-                // BluetoothSocket 연결 시도에 대한 return 값은 succes 또는 exception이다.
+                // BluetoothSocket connection return : succes or exception
                 mmSocket.connect();
                 Log.d(TAG, "Connect Success");
 
             } catch (IOException e) {
-                connectionFailed(); // 연결 실패시 불러오는 메소드
+                connectionFailed(); // loaded method when connectio failed
                 Log.d(TAG, "Connect Fail");
 
-                // socket을 닫는다.
+                // close socket
                 try {
                     mmSocket.close();
                 } catch (IOException e2) {
@@ -318,17 +318,17 @@ public class BluetoothService {
                             "unable to close() socket during connection failure",
                             e2);
                 }
-                // 연결중? 혹은 연결 대기상태인 메소드를 호출한다.
+                // 연결중? 혹은 연결 대기상태인 메소드를 호출한다. call methods on trying connection
                 BluetoothService.this.start();
                 return;
             }
 
-            // ConnectThread 클래스를 reset한다.
+            // reset ConnectThread class
             synchronized (BluetoothService.this) {
                 mConnectThread = null;
             }
 
-            // ConnectThread를 시작한다.
+            // start ConnectThread
             connected(mmSocket, mmDevice);
         }
 
@@ -352,7 +352,7 @@ public class BluetoothService {
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
 
-            // BluetoothSocket의 inputstream 과 outputstream을 얻는다.
+            // get inputstream and outputstream of BluetoothSocket
             try {
                 tmpIn = socket.getInputStream();
                 tmpOut = socket.getOutputStream();
@@ -372,7 +372,7 @@ public class BluetoothService {
             // Keep listening to the InputStream while connected
             while (true) {
                 try {
-                    // InputStream으로부터 값을 받는 읽는 부분(값을 받는다)
+                    // reading values getting from InputStream (getting values)
                     bytes = mmInStream.read(buffer);
 
                 } catch (IOException e) {
@@ -391,7 +391,7 @@ public class BluetoothService {
          */
         public void write(byte[] buffer) {
             try {
-                // 값을 쓰는 부분(값을 보낸다)
+                // writing values (sending values)
                 mmOutStream.write(buffer);
 
             } catch (IOException e) {
