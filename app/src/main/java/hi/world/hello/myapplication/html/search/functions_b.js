@@ -1,0 +1,15 @@
+var searchData=
+[
+  ['onactivityresult',['onActivityResult',['../classhi_1_1world_1_1hello_1_1myapplication_1_1_main_activity.html#afd40457c607c0d0a2ce8be1dded4e353',1,'hi::world::hello::myapplication::MainActivity']]],
+  ['onbind',['onBind',['../classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service.html#aa0622dc98d7fb77744a6fddc83599b89',1,'hi.world.hello.myapplication.GpsService.onBind()'],['../classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler.html#a12ab4afbaf4ba53b6d46a0d3db87df59',1,'hi.world.hello.myapplication.MessageHandler.onBind()']]],
+  ['oncreate',['onCreate',['../classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity.html#a6d0313ab175b34a19dc6a6bf987a2b0f',1,'hi.world.hello.myapplication.DeviceListActivity.onCreate()'],['../classhi_1_1world_1_1hello_1_1myapplication_1_1_main_activity.html#a523dacc03cb2b1c15df92e3a4eb2eb88',1,'hi.world.hello.myapplication.MainActivity.onCreate()'],['../classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler.html#ae550e2211e38fe8e9aa9ba0c0578b9fc',1,'hi.world.hello.myapplication.MessageHandler.onCreate()']]],
+  ['ondestroy',['onDestroy',['../classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity.html#a0e6e1dfdd4e73c1e759f9c3f02f6bf64',1,'hi.world.hello.myapplication.DeviceListActivity.onDestroy()'],['../classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler.html#ac04318416c0448542c24121beb9668a0',1,'hi.world.hello.myapplication.MessageHandler.onDestroy()']]],
+  ['onlocationchanged',['onLocationChanged',['../classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service.html#aa9ac2f486abbaa257c0dfce7cc2dd678',1,'hi::world::hello::myapplication::GpsService']]],
+  ['onpause',['onPause',['../classhi_1_1world_1_1hello_1_1myapplication_1_1_main_activity.html#af7f83474172a1a1d570d948bbd90ae71',1,'hi::world::hello::myapplication::MainActivity']]],
+  ['onproviderdisabled',['onProviderDisabled',['../classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service.html#a4b324d474cebd1d5d37352db127d29f8',1,'hi::world::hello::myapplication::GpsService']]],
+  ['onproviderenabled',['onProviderEnabled',['../classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service.html#a7ec743a20f204a0f3ca2efe5545f4246',1,'hi::world::hello::myapplication::GpsService']]],
+  ['onrequestpermissionsresult',['onRequestPermissionsResult',['../classhi_1_1world_1_1hello_1_1myapplication_1_1_main_activity.html#af417904ad04d6a619d2d316cc44a10fa',1,'hi::world::hello::myapplication::MainActivity']]],
+  ['onresume',['onResume',['../classhi_1_1world_1_1hello_1_1myapplication_1_1_main_activity.html#a07ccdceaee43aed9bc87992b194e00dc',1,'hi::world::hello::myapplication::MainActivity']]],
+  ['onstartcommand',['onStartCommand',['../classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler.html#a4678a911364d3b6d40e107df8dc28488',1,'hi::world::hello::myapplication::MessageHandler']]],
+  ['onstatuschanged',['onStatusChanged',['../classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service.html#a843192b623fde60337b2ab0b253392b7',1,'hi::world::hello::myapplication::GpsService']]]
+];

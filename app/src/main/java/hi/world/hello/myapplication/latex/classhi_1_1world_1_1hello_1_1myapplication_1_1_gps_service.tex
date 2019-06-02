@@ -1,0 +1,747 @@
+\hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service}{}\section{hi.\+world.\+hello.\+myapplication.\+Gps\+Service Class Reference}
+\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service}\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+
+
+managing G\+PS service  
+
+
+Inheritance diagram for hi.\+world.\+hello.\+myapplication.\+Gps\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ae221c88a83cc05e7694bd0ca40fc9e3c}{Gps\+Service}} ()
+\begin{DoxyCompactList}\small\item\em constructor of \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service}{Gps\+Service}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a5a919ba62585c257c1d9610cb81a318f}{Gps\+Service}} (Context context, \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}{Message\+Handler}} msg\+Service)
+\begin{DoxyCompactList}\small\item\em constructor of \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service}{Gps\+Service}} \end{DoxyCompactList}\item 
+Location \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aa08695320afe385d4473536031c068ef}{get\+Location}} ()
+\begin{DoxyCompactList}\small\item\em get current location \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a513cfde440fac8249b3e7145785b4483}{stop\+Using\+G\+PS}} ()
+\begin{DoxyCompactList}\small\item\em stop G\+PS service \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a63324e92926b66e02162b4e191dd57f2}{get\+Latitude}} ()
+\begin{DoxyCompactList}\small\item\em get latitude value \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a61286d98bc3a0a7a165297c9725dfba4}{get\+Longitude}} ()
+\begin{DoxyCompactList}\small\item\em get longitude value \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_acf4aafca162751ba09658d78ce33406f}{is\+Get\+Location}} ()
+\begin{DoxyCompactList}\small\item\em check G\+PS service or wifi is O\+N/\+O\+FF \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aedb9336a0302461a83e0539ff07fc184}{show\+Setting\+Alert}} ()
+\begin{DoxyCompactList}\small\item\em show alert window \end{DoxyCompactList}\item 
+I\+Binder \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aa0622dc98d7fb77744a6fddc83599b89}{on\+Bind}} (Intent intent)
+\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aa9ac2f486abbaa257c0dfce7cc2dd678}{on\+Location\+Changed}} (Location location)
+\begin{DoxyCompactList}\small\item\em check the current location is changed and change current location information sending the location information to Bluetooth glasses \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a843192b623fde60337b2ab0b253392b7}{on\+Status\+Changed}} (String provider, int status, Bundle extras)
+\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a7ec743a20f204a0f3ca2efe5545f4246}{on\+Provider\+Enabled}} (String provider)
+\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a4b324d474cebd1d5d37352db127d29f8}{on\+Provider\+Disabled}} (String provider)
+\item 
+synchronized void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aa5f7dabf9f89ea24a34e342c62ff4651}{set\+Dest}} (T\+Map\+Point src, T\+Map\+Point des)
+\begin{DoxyCompactList}\small\item\em set destination from current location in road\+Guide obejct \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a3cc2d95f81d9af77b15d1532aeea074b}{update\+Guide}} (T\+Map\+Point dest)
+\begin{DoxyCompactList}\small\item\em sending message that has information of turn types on the current location to Bluetooth glasses \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Location\+Manager \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}{location\+Manager}}
+\begin{DoxyCompactList}\small\item\em location manager \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af0aab7413bb674828f99d498c5c50de7}{send\+Broadcast}} (double la, double lo)
+\begin{DoxyCompactList}\small\item\em broadcast current location \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Context \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a287f4b761534fdf1c46fe4eb14f62ca6}{m\+Context}} = null
+\begin{DoxyCompactList}\small\item\em context \end{DoxyCompactList}\item 
+T\+Map\+Data \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af93324bb934aa30328cf998153d91bec}{t\+Map\+Data}} = new T\+Map\+Data()
+\begin{DoxyCompactList}\small\item\em T\+Map A\+PI data. \end{DoxyCompactList}\item 
+T\+Map\+Point \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af2635a5ffa3c883e90ba210c828a10f4}{my\+Location}} = null
+\begin{DoxyCompactList}\small\item\em current location \end{DoxyCompactList}\item 
+T\+Map\+Point \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ab8307961992e8c685182bbcaf643960f}{end}} = null
+\begin{DoxyCompactList}\small\item\em target location \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}{Message\+Handler}} \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ac8f9736807f14bf24d2a78dc018f84ba}{m\+Message\+Handler}} = null
+\begin{DoxyCompactList}\small\item\em whenever changing location, trying bluetooth communication \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide}{Road\+Guide}} \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aefb6a2894c429e421d54a98aa6d41da3}{road\+Guide}} = null
+\begin{DoxyCompactList}\small\item\em road\+Guide object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a22349ec7a239321d10eeac630bce141c}{T\+AG}} = \char`\"{}G\+P\+S\+\_\+\+T\+E\+ST\char`\"{}
+\begin{DoxyCompactList}\small\item\em debugging \end{DoxyCompactList}\item 
+static final long \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_acd59aa0b18284b8827b66d593b339a45}{M\+I\+N\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+F\+O\+R\+\_\+\+U\+P\+D\+A\+T\+ES}} = 10
+\begin{DoxyCompactList}\small\item\em minimum distance for updating G\+PS information \+: 10m \end{DoxyCompactList}\item 
+static final long \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a4505558cfb0807960b53f5e4232fee69}{M\+I\+N\+\_\+\+T\+I\+M\+E\+\_\+\+B\+W\+\_\+\+U\+P\+D\+A\+T\+ES}} = 1000 $\ast$ 1
+\begin{DoxyCompactList}\small\item\em minimum time for updating G\+PS information \+: 1 second \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+managing G\+PS service 
+
+Definition at line 34 of file Gps\+Service.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ae221c88a83cc05e7694bd0ca40fc9e3c}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ae221c88a83cc05e7694bd0ca40fc9e3c}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!GpsService@{GpsService}}
+\index{GpsService@{GpsService}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{GpsService()}{GpsService()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+Gps\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+constructor of \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service}{Gps\+Service}} 
+
+
+
+Definition at line 70 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70                         \{}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a5a919ba62585c257c1d9610cb81a318f}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a5a919ba62585c257c1d9610cb81a318f}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!GpsService@{GpsService}}
+\index{GpsService@{GpsService}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{GpsService()}{GpsService()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+Gps\+Service (\begin{DoxyParamCaption}\item[{Context}]{context,  }\item[{\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}{Message\+Handler}}}]{msg\+Service }\end{DoxyParamCaption})}
+
+
+
+constructor of \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service}{Gps\+Service}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & context \\
+\hline
+{\em msg\+Service} & message handler service \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 76 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76                                                                   \{}
+\DoxyCodeLine{77         this.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a287f4b761534fdf1c46fe4eb14f62ca6}{mContext}} = context;}
+\DoxyCodeLine{78         this.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ac8f9736807f14bf24d2a78dc018f84ba}{mMessageHandler}} = msgService;}
+\DoxyCodeLine{79         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aefb6a2894c429e421d54a98aa6d41da3}{roadGuide}} = \textcolor{keyword}{new} RoadGuide();}
+\DoxyCodeLine{80         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aa08695320afe385d4473536031c068ef}{getLocation}}();}
+\DoxyCodeLine{81     \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a63324e92926b66e02162b4e191dd57f2}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a63324e92926b66e02162b4e191dd57f2}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!getLatitude@{getLatitude}}
+\index{getLatitude@{getLatitude}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{getLatitude()}{getLatitude()}}
+{\footnotesize\ttfamily double hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+get\+Latitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get latitude value 
+
+\begin{DoxyReturn}{Returns}
+latitude 
+\end{DoxyReturn}
+
+
+Definition at line 165 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{165                                 \{}
+\DoxyCodeLine{166         \textcolor{keywordflow}{return} lat;}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aa08695320afe385d4473536031c068ef}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aa08695320afe385d4473536031c068ef}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!getLocation@{getLocation}}
+\index{getLocation@{getLocation}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{getLocation()}{getLocation()}}
+{\footnotesize\ttfamily Location hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+get\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get current location 
+
+
+\begin{DoxyItemize}
+\item getting G\+PS information
+\item getting current network state value
+\item get location values from network information \begin{DoxyReturn}{Returns}
+current location 
+\end{DoxyReturn}
+
+\end{DoxyItemize}
+
+Definition at line 89 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{89                                  \{}
+\DoxyCodeLine{90         \textcolor{keywordflow}{if} (Build.VERSION.SDK\_INT >= 23 \&\& ContextCompat.checkSelfPermission(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a287f4b761534fdf1c46fe4eb14f62ca6}{mContext}}, Manifest.permission.ACCESS\_FINE\_LOCATION) != PackageManager.PERMISSION\_GRANTED}
+\DoxyCodeLine{91                 \&\& ContextCompat.checkSelfPermission(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a287f4b761534fdf1c46fe4eb14f62ca6}{mContext}}, Manifest.permission.ACCESS\_COARSE\_LOCATION) != PackageManager.PERMISSION\_GRANTED) \{}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93             \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{94         \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{97             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}{locationManager}} = (LocationManager) \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a287f4b761534fdf1c46fe4eb14f62ca6}{mContext}}.getSystemService(LOCATION\_SERVICE);}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99             \textcolor{comment}{// getting GPS information}}
+\DoxyCodeLine{100             isGPSEnabled = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}{locationManager}}.isProviderEnabled(LocationManager.GPS\_PROVIDER);}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102             \textcolor{comment}{// getting current network state value}}
+\DoxyCodeLine{103             isNetworkEnabled = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}{locationManager}}.isProviderEnabled(LocationManager.NETWORK\_PROVIDER);}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105             \textcolor{keywordflow}{if} (!isGPSEnabled \&\& !isNetworkEnabled) \{}
+\DoxyCodeLine{106                 }
+\DoxyCodeLine{107             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{108                 this.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_acf4aafca162751ba09658d78ce33406f}{isGetLocation}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{109                 \textcolor{keywordflow}{if} (isNetworkEnabled) \{}
+\DoxyCodeLine{110                     \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}{locationManager}}.requestLocationUpdates(}
+\DoxyCodeLine{111                             LocationManager.NETWORK\_PROVIDER,}
+\DoxyCodeLine{112                             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a4505558cfb0807960b53f5e4232fee69}{MIN\_TIME\_BW\_UPDATES}},}
+\DoxyCodeLine{113                             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_acd59aa0b18284b8827b66d593b339a45}{MIN\_DISTANCE\_CHANGE\_FOR\_UPDATES}}, \textcolor{keyword}{this});}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}{locationManager}} != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{116                         location = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}{locationManager}}.getLastKnownLocation(LocationManager.NETWORK\_PROVIDER);}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118                         \textcolor{keywordflow}{if} (location != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{119                             lat = location.getLatitude();}
+\DoxyCodeLine{120                             lon = location.getLongitude();}
+\DoxyCodeLine{121                             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aefb6a2894c429e421d54a98aa6d41da3}{roadGuide}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_abaddcd57733c5c7633a8b2e3e47629f8}{setMyLocation}}(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af2635a5ffa3c883e90ba210c828a10f4}{myLocation}});}
+\DoxyCodeLine{122                         \}}
+\DoxyCodeLine{123                     \}}
+\DoxyCodeLine{124                 \}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126                 \textcolor{keywordflow}{if} (isGPSEnabled) \{}
+\DoxyCodeLine{127                     \textcolor{keywordflow}{if} (location == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{128                         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}{locationManager}}.requestLocationUpdates(}
+\DoxyCodeLine{129                                 LocationManager.GPS\_PROVIDER,}
+\DoxyCodeLine{130                                 \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a4505558cfb0807960b53f5e4232fee69}{MIN\_TIME\_BW\_UPDATES}},}
+\DoxyCodeLine{131                                 \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_acd59aa0b18284b8827b66d593b339a45}{MIN\_DISTANCE\_CHANGE\_FOR\_UPDATES}}, \textcolor{keyword}{this});}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133                         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}{locationManager}} != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{134                             location = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}{locationManager}}.getLastKnownLocation(LocationManager.GPS\_PROVIDER);}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136                             \textcolor{keywordflow}{if} (location != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{137                                 lat = location.getLatitude();}
+\DoxyCodeLine{138                                 lon = location.getLongitude();}
+\DoxyCodeLine{139                                 \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aefb6a2894c429e421d54a98aa6d41da3}{roadGuide}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_abaddcd57733c5c7633a8b2e3e47629f8}{setMyLocation}}(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af2635a5ffa3c883e90ba210c828a10f4}{myLocation}});}
+\DoxyCodeLine{140                             \}}
+\DoxyCodeLine{141                         \}}
+\DoxyCodeLine{142                     \}}
+\DoxyCodeLine{143                 \}}
+\DoxyCodeLine{144             \}}
+\DoxyCodeLine{145         \} \textcolor{keywordflow}{catch} (Exception e)\{}
+\DoxyCodeLine{146             e.printStackTrace();}
+\DoxyCodeLine{147         \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149         \textcolor{keywordflow}{return} location;}
+\DoxyCodeLine{150     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a61286d98bc3a0a7a165297c9725dfba4}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a61286d98bc3a0a7a165297c9725dfba4}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!getLongitude@{getLongitude}}
+\index{getLongitude@{getLongitude}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{getLongitude()}{getLongitude()}}
+{\footnotesize\ttfamily double hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+get\+Longitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get longitude value 
+
+\begin{DoxyReturn}{Returns}
+longitude 
+\end{DoxyReturn}
+
+
+Definition at line 174 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{174                                  \{}
+\DoxyCodeLine{175         \textcolor{keywordflow}{return} lon;}
+\DoxyCodeLine{176     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_acf4aafca162751ba09658d78ce33406f}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_acf4aafca162751ba09658d78ce33406f}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!isGetLocation@{isGetLocation}}
+\index{isGetLocation@{isGetLocation}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{isGetLocation()}{isGetLocation()}}
+{\footnotesize\ttfamily boolean hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+is\+Get\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+check G\+PS service or wifi is O\+N/\+O\+FF 
+
+\begin{DoxyReturn}{Returns}
+current location 
+\end{DoxyReturn}
+
+
+Definition at line 182 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{182                                    \{}
+\DoxyCodeLine{183         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_acf4aafca162751ba09658d78ce33406f}{isGetLocation}};}
+\DoxyCodeLine{184     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aa0622dc98d7fb77744a6fddc83599b89}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aa0622dc98d7fb77744a6fddc83599b89}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!onBind@{onBind}}
+\index{onBind@{onBind}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{onBind()}{onBind()}}
+{\footnotesize\ttfamily I\+Binder hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+on\+Bind (\begin{DoxyParamCaption}\item[{Intent}]{intent }\end{DoxyParamCaption})}
+
+
+
+Definition at line 218 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{218                                          \{}
+\DoxyCodeLine{219         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} UnsupportedOperationException(\textcolor{stringliteral}{"Not yet implemented"});}
+\DoxyCodeLine{220     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aa9ac2f486abbaa257c0dfce7cc2dd678}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aa9ac2f486abbaa257c0dfce7cc2dd678}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!onLocationChanged@{onLocationChanged}}
+\index{onLocationChanged@{onLocationChanged}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{onLocationChanged()}{onLocationChanged()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+on\+Location\+Changed (\begin{DoxyParamCaption}\item[{Location}]{location }\end{DoxyParamCaption})}
+
+
+
+check the current location is changed and change current location information sending the location information to Bluetooth glasses 
+
+
+
+Definition at line 224 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{224                                                      \{}
+\DoxyCodeLine{225         lat = location.getLatitude();}
+\DoxyCodeLine{226         lon = location.getLongitude();}
+\DoxyCodeLine{227         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af0aab7413bb674828f99d498c5c50de7}{sendBroadcast}}(lat, lon);}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229         Log.e(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a22349ec7a239321d10eeac630bce141c}{TAG}},\textcolor{stringliteral}{"lnLocationChanged: "} + location);}
+\DoxyCodeLine{230         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af2635a5ffa3c883e90ba210c828a10f4}{myLocation}} = \textcolor{keyword}{new} TMapPoint(location.getLatitude(), location.getLongitude());}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aefb6a2894c429e421d54a98aa6d41da3}{roadGuide}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_abaddcd57733c5c7633a8b2e3e47629f8}{setMyLocation}}(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af2635a5ffa3c883e90ba210c828a10f4}{myLocation}});}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234         Log.i(\textcolor{stringliteral}{"BluetoothState"}, \textcolor{stringliteral}{""} + \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ac8f9736807f14bf24d2a78dc018f84ba}{mMessageHandler}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_abd52d22e358f8b53d0f288e96fe4b64b}{getmBluetoothService}}().\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa33057afe9bc035501a9db0cd842d0d3}{getState}}() + \textcolor{stringliteral}{", "} + BluetoothService.STATE\_CONNECTED);}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ac8f9736807f14bf24d2a78dc018f84ba}{mMessageHandler}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_abd52d22e358f8b53d0f288e96fe4b64b}{getmBluetoothService}}().\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa33057afe9bc035501a9db0cd842d0d3}{getState}}() == BluetoothService.STATE\_CONNECTED) \{}
+\DoxyCodeLine{237             Log.i(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a22349ec7a239321d10eeac630bce141c}{TAG}}, \textcolor{stringliteral}{"bluetooth is connected"});}
+\DoxyCodeLine{238             String message = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a3cc2d95f81d9af77b15d1532aeea074b}{updateGuide}}(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ab8307961992e8c685182bbcaf643960f}{end}});}
+\DoxyCodeLine{239             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ac8f9736807f14bf24d2a78dc018f84ba}{mMessageHandler}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a74619443552d00df9fd4a28843c796a5}{sendMessage}}(message);}
+\DoxyCodeLine{240         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{241             Log.i(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a22349ec7a239321d10eeac630bce141c}{TAG}}, \textcolor{stringliteral}{"bluetooth is not connected"});}
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a4b324d474cebd1d5d37352db127d29f8}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a4b324d474cebd1d5d37352db127d29f8}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!onProviderDisabled@{onProviderDisabled}}
+\index{onProviderDisabled@{onProviderDisabled}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{onProviderDisabled()}{onProviderDisabled()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+on\+Provider\+Disabled (\begin{DoxyParamCaption}\item[{String}]{provider }\end{DoxyParamCaption})}
+
+
+
+Definition at line 254 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{254                                                     \{}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a7ec743a20f204a0f3ca2efe5545f4246}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a7ec743a20f204a0f3ca2efe5545f4246}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!onProviderEnabled@{onProviderEnabled}}
+\index{onProviderEnabled@{onProviderEnabled}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{onProviderEnabled()}{onProviderEnabled()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+on\+Provider\+Enabled (\begin{DoxyParamCaption}\item[{String}]{provider }\end{DoxyParamCaption})}
+
+
+
+Definition at line 250 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{250                                                    \{}
+\DoxyCodeLine{251 }
+\DoxyCodeLine{252     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a843192b623fde60337b2ab0b253392b7}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a843192b623fde60337b2ab0b253392b7}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!onStatusChanged@{onStatusChanged}}
+\index{onStatusChanged@{onStatusChanged}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{onStatusChanged()}{onStatusChanged()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+on\+Status\+Changed (\begin{DoxyParamCaption}\item[{String}]{provider,  }\item[{int}]{status,  }\item[{Bundle}]{extras }\end{DoxyParamCaption})}
+
+
+
+Definition at line 246 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{246                                                                             \{}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af0aab7413bb674828f99d498c5c50de7}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af0aab7413bb674828f99d498c5c50de7}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!sendBroadcast@{sendBroadcast}}
+\index{sendBroadcast@{sendBroadcast}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{sendBroadcast()}{sendBroadcast()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+send\+Broadcast (\begin{DoxyParamCaption}\item[{double}]{la,  }\item[{double}]{lo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+broadcast current location 
+
+
+\begin{DoxyParams}{Parameters}
+{\em la} & latitude \\
+\hline
+{\em lo} & longitude \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 297 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{297                                                      \{}
+\DoxyCodeLine{298         Log.d(\textcolor{stringliteral}{"BroadcastGPS"}, \textcolor{stringliteral}{""} + la + \textcolor{stringliteral}{", "} + lo);}
+\DoxyCodeLine{299         Intent intent = \textcolor{keyword}{new} Intent(\textcolor{stringliteral}{"myLocation"});}
+\DoxyCodeLine{300         intent.putExtra(\textcolor{stringliteral}{"latitude"}, la);}
+\DoxyCodeLine{301         intent.putExtra(\textcolor{stringliteral}{"longitude"}, lo);}
+\DoxyCodeLine{302         LocalBroadcastManager.getInstance(\textcolor{keyword}{this}).sendBroadcast(intent);}
+\DoxyCodeLine{303     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aa5f7dabf9f89ea24a34e342c62ff4651}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aa5f7dabf9f89ea24a34e342c62ff4651}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!setDest@{setDest}}
+\index{setDest@{setDest}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{setDest()}{setDest()}}
+{\footnotesize\ttfamily synchronized void hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+set\+Dest (\begin{DoxyParamCaption}\item[{T\+Map\+Point}]{src,  }\item[{T\+Map\+Point}]{des }\end{DoxyParamCaption})}
+
+
+
+set destination from current location in road\+Guide obejct 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & current location \\
+\hline
+{\em des} & destination location \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 260 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{260                                                                    \{}
+\DoxyCodeLine{261         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ab8307961992e8c685182bbcaf643960f}{end}} = des;}
+\DoxyCodeLine{262         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af2635a5ffa3c883e90ba210c828a10f4}{myLocation}} = src;}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aefb6a2894c429e421d54a98aa6d41da3}{roadGuide}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_af87d3224240ef90fcb995287620684d7}{toward}}(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af2635a5ffa3c883e90ba210c828a10f4}{myLocation}}, \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ab8307961992e8c685182bbcaf643960f}{end}});}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aedb9336a0302461a83e0539ff07fc184}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aedb9336a0302461a83e0539ff07fc184}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!showSettingAlert@{showSettingAlert}}
+\index{showSettingAlert@{showSettingAlert}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{showSettingAlert()}{showSettingAlert()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+show\+Setting\+Alert (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+show alert window 
+
+
+\begin{DoxyItemize}
+\item showing alert window alerting current G\+PS state
+\item move to setting window for G\+PS setting 
+\end{DoxyItemize}
+
+Definition at line 189 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{189                                    \{}
+\DoxyCodeLine{190         AlertDialog.Builder alertDialog = \textcolor{keyword}{new} AlertDialog.Builder(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a287f4b761534fdf1c46fe4eb14f62ca6}{mContext}});}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192         alertDialog.setTitle(\textcolor{stringliteral}{"GPS 사용유무세팅"});}
+\DoxyCodeLine{193         alertDialog.setMessage(\textcolor{stringliteral}{"GPS 세팅이 되지 않았을 수 도 있습니다. \(\backslash\)n 설정창으로 가시겠습니까?"});}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195         \textcolor{comment}{// if press OK button, move to setting window}}
+\DoxyCodeLine{196         alertDialog.setPositiveButton(\textcolor{stringliteral}{"Settings"},}
+\DoxyCodeLine{197                 \textcolor{keyword}{new} DialogInterface.OnClickListener() \{}
+\DoxyCodeLine{198                     @Override}
+\DoxyCodeLine{199                     \textcolor{keyword}{public} \textcolor{keywordtype}{void} onClick(DialogInterface dialog, \textcolor{keywordtype}{int} which) \{}
+\DoxyCodeLine{200                         Intent intent = \textcolor{keyword}{new} Intent(Settings.ACTION\_LOCATION\_SOURCE\_SETTINGS);}
+\DoxyCodeLine{201                         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a287f4b761534fdf1c46fe4eb14f62ca6}{mContext}}.startActivity(intent);}
+\DoxyCodeLine{202                     \}}
+\DoxyCodeLine{203                 \});}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205         \textcolor{comment}{// cancel}}
+\DoxyCodeLine{206         alertDialog.setNegativeButton(\textcolor{stringliteral}{"Cancel"},}
+\DoxyCodeLine{207                 \textcolor{keyword}{new} DialogInterface.OnClickListener() \{}
+\DoxyCodeLine{208                     @Override}
+\DoxyCodeLine{209                     \textcolor{keyword}{public} \textcolor{keywordtype}{void} onClick(DialogInterface dialog, \textcolor{keywordtype}{int} which) \{}
+\DoxyCodeLine{210                         dialog.cancel();}
+\DoxyCodeLine{211                     \}}
+\DoxyCodeLine{212                 \});}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214         alertDialog.show();}
+\DoxyCodeLine{215     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a513cfde440fac8249b3e7145785b4483}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a513cfde440fac8249b3e7145785b4483}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!stopUsingGPS@{stopUsingGPS}}
+\index{stopUsingGPS@{stopUsingGPS}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{stopUsingGPS()}{stopUsingGPS()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+stop\+Using\+G\+PS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+stop G\+PS service 
+
+
+
+Definition at line 155 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{155                                \{}
+\DoxyCodeLine{156         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}{locationManager}} != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{157             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}{locationManager}}.removeUpdates(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ae221c88a83cc05e7694bd0ca40fc9e3c}{GpsService}}.this);}
+\DoxyCodeLine{158         \}}
+\DoxyCodeLine{159     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a3cc2d95f81d9af77b15d1532aeea074b}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a3cc2d95f81d9af77b15d1532aeea074b}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!updateGuide@{updateGuide}}
+\index{updateGuide@{updateGuide}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{updateGuide()}{updateGuide()}}
+{\footnotesize\ttfamily String hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+update\+Guide (\begin{DoxyParamCaption}\item[{T\+Map\+Point}]{dest }\end{DoxyParamCaption})}
+
+
+
+sending message that has information of turn types on the current location to Bluetooth glasses 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & destinatio location information \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+msg sended message 
+\end{DoxyReturn}
+
+
+Definition at line 270 of file Gps\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{270                                               \{}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272         TMapPOIItem next = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aefb6a2894c429e421d54a98aa6d41da3}{roadGuide}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a7a914dc7c0657710e464f22d6423bb71}{getNextPOI}}();}
+\DoxyCodeLine{273         String turn = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aefb6a2894c429e421d54a98aa6d41da3}{roadGuide}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a00e2b29e78e42d25e66d2858c4165cd1}{getTurntype}}();}
+\DoxyCodeLine{274         \textcolor{comment}{// sent message}}
+\DoxyCodeLine{275         String msg;}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277         \textcolor{keywordflow}{if} (next != \textcolor{keyword}{null} \&\& turn != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{278             \textcolor{comment}{// distance between src and nest POI}}
+\DoxyCodeLine{279             \textcolor{keywordtype}{int} distance = (int)next.getDistance(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af2635a5ffa3c883e90ba210c828a10f4}{myLocation}});}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281             Log.i(\textcolor{stringliteral}{"updateGuide"}, \textcolor{stringliteral}{"다음 경유지까지 거리 "} + distance + \textcolor{stringliteral}{"\(\backslash\)n"} + \textcolor{stringliteral}{"다음 경유지에서의 회전 방향 "} + turn);}
+\DoxyCodeLine{282             \textcolor{keywordflow}{if} (turn == \textcolor{stringliteral}{"201"} \&\& distance <= 10) \{}
+\DoxyCodeLine{283                 msg = turn;}
+\DoxyCodeLine{284             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{285                 msg = turn + \textcolor{stringliteral}{", "} + distance;}
+\DoxyCodeLine{286             \}}
+\DoxyCodeLine{287         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{288             msg = \textcolor{stringliteral}{"경로를 탐색중입니다"};}
+\DoxyCodeLine{289         \}}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291         \textcolor{keywordflow}{return} msg;}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293     \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ab8307961992e8c685182bbcaf643960f}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ab8307961992e8c685182bbcaf643960f}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!end@{end}}
+\index{end@{end}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{end}{end}}
+{\footnotesize\ttfamily T\+Map\+Point hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+end = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+target location 
+
+
+
+Definition at line 42 of file Gps\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af07bc224afddbe62529efca8dc49fd9b}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!locationManager@{locationManager}}
+\index{locationManager@{locationManager}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{locationManager}{locationManager}}
+{\footnotesize\ttfamily Location\+Manager hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+location\+Manager\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+location manager 
+
+
+
+Definition at line 65 of file Gps\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a287f4b761534fdf1c46fe4eb14f62ca6}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a287f4b761534fdf1c46fe4eb14f62ca6}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!mContext@{mContext}}
+\index{mContext@{mContext}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{mContext}{mContext}}
+{\footnotesize\ttfamily Context hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+m\+Context = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+context 
+
+
+
+Definition at line 36 of file Gps\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_acd59aa0b18284b8827b66d593b339a45}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_acd59aa0b18284b8827b66d593b339a45}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!MIN\_DISTANCE\_CHANGE\_FOR\_UPDATES@{MIN\_DISTANCE\_CHANGE\_FOR\_UPDATES}}
+\index{MIN\_DISTANCE\_CHANGE\_FOR\_UPDATES@{MIN\_DISTANCE\_CHANGE\_FOR\_UPDATES}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{MIN\_DISTANCE\_CHANGE\_FOR\_UPDATES}{MIN\_DISTANCE\_CHANGE\_FOR\_UPDATES}}
+{\footnotesize\ttfamily final long hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+M\+I\+N\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+F\+O\+R\+\_\+\+U\+P\+D\+A\+T\+ES = 10\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+minimum distance for updating G\+PS information \+: 10m 
+
+
+
+Definition at line 61 of file Gps\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a4505558cfb0807960b53f5e4232fee69}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a4505558cfb0807960b53f5e4232fee69}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!MIN\_TIME\_BW\_UPDATES@{MIN\_TIME\_BW\_UPDATES}}
+\index{MIN\_TIME\_BW\_UPDATES@{MIN\_TIME\_BW\_UPDATES}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{MIN\_TIME\_BW\_UPDATES}{MIN\_TIME\_BW\_UPDATES}}
+{\footnotesize\ttfamily final long hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+M\+I\+N\+\_\+\+T\+I\+M\+E\+\_\+\+B\+W\+\_\+\+U\+P\+D\+A\+T\+ES = 1000 $\ast$ 1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+minimum time for updating G\+PS information \+: 1 second 
+
+
+
+Definition at line 63 of file Gps\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ac8f9736807f14bf24d2a78dc018f84ba}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_ac8f9736807f14bf24d2a78dc018f84ba}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!mMessageHandler@{mMessageHandler}}
+\index{mMessageHandler@{mMessageHandler}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{mMessageHandler}{mMessageHandler}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}{Message\+Handler}} hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+m\+Message\+Handler = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+whenever changing location, trying bluetooth communication 
+
+
+
+Definition at line 45 of file Gps\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af2635a5ffa3c883e90ba210c828a10f4}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af2635a5ffa3c883e90ba210c828a10f4}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!myLocation@{myLocation}}
+\index{myLocation@{myLocation}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{myLocation}{myLocation}}
+{\footnotesize\ttfamily T\+Map\+Point hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+my\+Location = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+current location 
+
+
+
+Definition at line 41 of file Gps\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aefb6a2894c429e421d54a98aa6d41da3}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_aefb6a2894c429e421d54a98aa6d41da3}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!roadGuide@{roadGuide}}
+\index{roadGuide@{roadGuide}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{roadGuide}{roadGuide}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide}{Road\+Guide}} hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+road\+Guide = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+road\+Guide object 
+
+
+
+Definition at line 67 of file Gps\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a22349ec7a239321d10eeac630bce141c}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_a22349ec7a239321d10eeac630bce141c}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!TAG@{TAG}}
+\index{TAG@{TAG}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{TAG}{TAG}}
+{\footnotesize\ttfamily final String hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+T\+AG = \char`\"{}G\+P\+S\+\_\+\+T\+E\+ST\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+debugging 
+
+
+
+Definition at line 38 of file Gps\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af93324bb934aa30328cf998153d91bec}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_gps_service_af93324bb934aa30328cf998153d91bec}} 
+\index{hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}!tMapData@{tMapData}}
+\index{tMapData@{tMapData}!hi.world.hello.myapplication.GpsService@{hi.world.hello.myapplication.GpsService}}
+\subsubsection{\texorpdfstring{tMapData}{tMapData}}
+{\footnotesize\ttfamily T\+Map\+Data hi.\+world.\+hello.\+myapplication.\+Gps\+Service.\+t\+Map\+Data = new T\+Map\+Data()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+T\+Map A\+PI data. 
+
+
+
+Definition at line 40 of file Gps\+Service.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_gps_service_8java}{Gps\+Service.\+java}}\end{DoxyCompactItemize}

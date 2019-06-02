@@ -1,0 +1,408 @@
+\hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}{}\section{hi.\+world.\+hello.\+myapplication.\+Message\+Handler Class Reference}
+\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+
+
+managing message handler  
+
+
+Inheritance diagram for hi.\+world.\+hello.\+myapplication.\+Message\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a3f340dbd546df332f2e4872cdbe8157a}{Message\+Handler}} ()
+\begin{DoxyCompactList}\small\item\em constuctor of \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}{Message\+Handler}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ae2003b499a79c11ba049ca15df235644}{Message\+Handler}} (Activity ac, \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service}{Bluetooth\+Service}} bt\+Service)
+\begin{DoxyCompactList}\small\item\em constructor of \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}{Message\+Handler}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ae550e2211e38fe8e9aa9ba0c0578b9fc}{on\+Create}} ()
+\begin{DoxyCompactList}\small\item\em initialize \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}{Message\+Handler}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a4678a911364d3b6d40e107df8dc28488}{on\+Start\+Command}} (Intent intent, int flags, int start\+Id)
+\item 
+\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service}{Bluetooth\+Service}} \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_abd52d22e358f8b53d0f288e96fe4b64b}{getm\+Bluetooth\+Service}} ()
+\begin{DoxyCompactList}\small\item\em get current Bluetooth service \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a74619443552d00df9fd4a28843c796a5}{send\+Message}} (String message)
+\begin{DoxyCompactList}\small\item\em send message to Bluetooth glasses \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ac04318416c0448542c24121beb9668a0}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em stop \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service}{Bluetooth\+Service}} \end{DoxyCompactList}\item 
+I\+Binder \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a12ab4afbaf4ba53b6d46a0d3db87df59}{on\+Bind}} (Intent intent)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a28dc0a4d1a62315046772ed20815d723}{setup\+Comm}} ()
+\begin{DoxyCompactList}\small\item\em initialize \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}{Message\+Handler}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a94ef40e803137d2022f1ec0408ee7868}{ensure\+Discoverable}} ()
+\begin{DoxyCompactList}\small\item\em Makes this device discoverable for 300 seconds ( 5 minutes ) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a345ec9cdc760728388f6c2d6d5c21962}{connect\+Device}} (Intent data)
+\begin{DoxyCompactList}\small\item\em make Bluetooth connection \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Bluetooth\+Adapter \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ae5b9a111ab4b922642e376eaa940dd49}{m\+Bluetooth\+Adapter}} = null
+\begin{DoxyCompactList}\small\item\em Local Bluetooth adapter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service}{Bluetooth\+Service}} \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a6d4cc2b25e157632e8c0b3d69bcb0062}{m\+Bluetooth\+Service}} = null
+\begin{DoxyCompactList}\small\item\em Member object for the bluetooth services. \end{DoxyCompactList}\item 
+Activity \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_aea04de3c9ae7a2a0946c7c039a42d2d5}{m\+Activity}}
+\begin{DoxyCompactList}\small\item\em context \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a0ab36705ac35817da5d6d7d21779a318}{T\+AG}} = \char`\"{}Message\+Handler\char`\"{}
+\begin{DoxyCompactList}\small\item\em debugging \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+managing message handler 
+
+Definition at line 21 of file Message\+Handler.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a3f340dbd546df332f2e4872cdbe8157a}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a3f340dbd546df332f2e4872cdbe8157a}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!MessageHandler@{MessageHandler}}
+\index{MessageHandler@{MessageHandler}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{MessageHandler()}{MessageHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+Message\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+constuctor of \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}{Message\+Handler}} 
+
+
+
+Definition at line 31 of file Message\+Handler.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31                             \{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ae2003b499a79c11ba049ca15df235644}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ae2003b499a79c11ba049ca15df235644}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!MessageHandler@{MessageHandler}}
+\index{MessageHandler@{MessageHandler}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{MessageHandler()}{MessageHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+Message\+Handler (\begin{DoxyParamCaption}\item[{Activity}]{ac,  }\item[{\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service}{Bluetooth\+Service}}}]{bt\+Service }\end{DoxyParamCaption})}
+
+
+
+constructor of \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}{Message\+Handler}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ac} & context \\
+\hline
+{\em bt\+Service} & current \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service}{Bluetooth\+Service}} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file Message\+Handler.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37                                                                    \{}
+\DoxyCodeLine{38         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_aea04de3c9ae7a2a0946c7c039a42d2d5}{mActivity}} = ac;}
+\DoxyCodeLine{39         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a6d4cc2b25e157632e8c0b3d69bcb0062}{mBluetoothService}} = btService;}
+\DoxyCodeLine{40         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ae5b9a111ab4b922642e376eaa940dd49}{mBluetoothAdapter}} = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a6d4cc2b25e157632e8c0b3d69bcb0062}{mBluetoothService}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a13b9759e4ae34055ed5a971c9d897a1e}{getBtAdapter}}();}
+\DoxyCodeLine{41     \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a345ec9cdc760728388f6c2d6d5c21962}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a345ec9cdc760728388f6c2d6d5c21962}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!connectDevice@{connectDevice}}
+\index{connectDevice@{connectDevice}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{connectDevice()}{connectDevice()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+connect\+Device (\begin{DoxyParamCaption}\item[{Intent}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+make Bluetooth connection 
+
+
+
+Definition at line 114 of file Message\+Handler.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{114                                             \{}
+\DoxyCodeLine{115         \textcolor{comment}{// Get the device MAC address}}
+\DoxyCodeLine{116         String address = data.getExtras().getString(DeviceListActivity.EXTRA\_DEVICE\_ADDRESS);}
+\DoxyCodeLine{117         \textcolor{comment}{// Get the BluetoothDevice object}}
+\DoxyCodeLine{118         BluetoothDevice device = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ae5b9a111ab4b922642e376eaa940dd49}{mBluetoothAdapter}}.getRemoteDevice(address);}
+\DoxyCodeLine{119         \textcolor{comment}{// Attempt to connect to the device}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a94ef40e803137d2022f1ec0408ee7868}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a94ef40e803137d2022f1ec0408ee7868}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!ensureDiscoverable@{ensureDiscoverable}}
+\index{ensureDiscoverable@{ensureDiscoverable}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{ensureDiscoverable()}{ensureDiscoverable()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+ensure\+Discoverable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Makes this device discoverable for 300 seconds ( 5 minutes ) 
+
+
+
+Definition at line 74 of file Message\+Handler.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{74                                       \{}
+\DoxyCodeLine{75         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ae5b9a111ab4b922642e376eaa940dd49}{mBluetoothAdapter}}.getScanMode() !=}
+\DoxyCodeLine{76                 BluetoothAdapter.SCAN\_MODE\_CONNECTABLE\_DISCOVERABLE) \{}
+\DoxyCodeLine{77             Intent discoverableIntent = \textcolor{keyword}{new} Intent(BluetoothAdapter.ACTION\_REQUEST\_DISCOVERABLE);}
+\DoxyCodeLine{78             discoverableIntent.putExtra(BluetoothAdapter.EXTRA\_DISCOVERABLE\_DURATION, 300);}
+\DoxyCodeLine{79             startActivity(discoverableIntent);}
+\DoxyCodeLine{80         \}}
+\DoxyCodeLine{81     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_abd52d22e358f8b53d0f288e96fe4b64b}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_abd52d22e358f8b53d0f288e96fe4b64b}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!getmBluetoothService@{getmBluetoothService}}
+\index{getmBluetoothService@{getmBluetoothService}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{getmBluetoothService()}{getmBluetoothService()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service}{Bluetooth\+Service}} hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+getm\+Bluetooth\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get current Bluetooth service 
+
+
+
+Definition at line 67 of file Message\+Handler.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67                                                    \{}
+\DoxyCodeLine{68         \textcolor{keywordflow}{return} \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a6d4cc2b25e157632e8c0b3d69bcb0062}{mBluetoothService}};}
+\DoxyCodeLine{69     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a12ab4afbaf4ba53b6d46a0d3db87df59}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a12ab4afbaf4ba53b6d46a0d3db87df59}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!onBind@{onBind}}
+\index{onBind@{onBind}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{onBind()}{onBind()}}
+{\footnotesize\ttfamily I\+Binder hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+on\+Bind (\begin{DoxyParamCaption}\item[{Intent}]{intent }\end{DoxyParamCaption})}
+
+
+
+Definition at line 124 of file Message\+Handler.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{124                                          \{}
+\DoxyCodeLine{125         \textcolor{keywordflow}{throw} \textcolor{keyword}{new} UnsupportedOperationException(\textcolor{stringliteral}{"Not yet implemented"});}
+\DoxyCodeLine{126     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ae550e2211e38fe8e9aa9ba0c0578b9fc}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ae550e2211e38fe8e9aa9ba0c0578b9fc}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!onCreate@{onCreate}}
+\index{onCreate@{onCreate}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{onCreate()}{onCreate()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+on\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+initialize \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}{Message\+Handler}} 
+
+
+
+Definition at line 44 of file Message\+Handler.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                            \{}
+\DoxyCodeLine{45         super.onCreate();}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a28dc0a4d1a62315046772ed20815d723}{setupComm}}();}
+\DoxyCodeLine{48     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ac04318416c0448542c24121beb9668a0}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ac04318416c0448542c24121beb9668a0}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!onDestroy@{onDestroy}}
+\index{onDestroy@{onDestroy}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{onDestroy()}{onDestroy()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+on\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+stop \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service}{Bluetooth\+Service}} 
+
+
+
+Definition at line 107 of file Message\+Handler.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{107                             \{}
+\DoxyCodeLine{108         super.onDestroy();}
+\DoxyCodeLine{109         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a6d4cc2b25e157632e8c0b3d69bcb0062}{mBluetoothService}} != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{110             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a6d4cc2b25e157632e8c0b3d69bcb0062}{mBluetoothService}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ac2f4c08d272b9426878621463f4c95e9}{stop}}();}
+\DoxyCodeLine{111         \}}
+\DoxyCodeLine{112     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a4678a911364d3b6d40e107df8dc28488}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a4678a911364d3b6d40e107df8dc28488}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!onStartCommand@{onStartCommand}}
+\index{onStartCommand@{onStartCommand}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{onStartCommand()}{onStartCommand()}}
+{\footnotesize\ttfamily int hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+on\+Start\+Command (\begin{DoxyParamCaption}\item[{Intent}]{intent,  }\item[{int}]{flags,  }\item[{int}]{start\+Id }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file Message\+Handler.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51                                                                      \{}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a6d4cc2b25e157632e8c0b3d69bcb0062}{mBluetoothService}} != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{54             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a6d4cc2b25e157632e8c0b3d69bcb0062}{mBluetoothService}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa33057afe9bc035501a9db0cd842d0d3}{getState}}() == BluetoothService.STATE\_NONE) \{}
+\DoxyCodeLine{55                 \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a6d4cc2b25e157632e8c0b3d69bcb0062}{mBluetoothService}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa380384e7d6817ad7044afefc7ffa447}{start}}();}
+\DoxyCodeLine{56             \}}
+\DoxyCodeLine{57         \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         \textcolor{keywordflow}{return} \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a4678a911364d3b6d40e107df8dc28488}{onStartCommand}}(intent, flags, startId);}
+\DoxyCodeLine{60     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a74619443552d00df9fd4a28843c796a5}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a74619443552d00df9fd4a28843c796a5}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!sendMessage@{sendMessage}}
+\index{sendMessage@{sendMessage}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{sendMessage()}{sendMessage()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+send\+Message (\begin{DoxyParamCaption}\item[{String}]{message }\end{DoxyParamCaption})}
+
+
+
+send message to Bluetooth glasses 
+
+
+\begin{DoxyItemize}
+\item Check that we\textquotesingle{}re actually connected before trying anything
+\item Check that there\textquotesingle{}s actually something to send
+\item Get the message bytes and tell the \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service}{Bluetooth\+Service}} to write 
+\begin{DoxyParams}{Parameters}
+{\em message} & a string of text to send \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}
+
+Definition at line 91 of file Message\+Handler.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91                                             \{}
+\DoxyCodeLine{92         \textcolor{comment}{// Check that we're actually connected before trying anything}}
+\DoxyCodeLine{93         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a6d4cc2b25e157632e8c0b3d69bcb0062}{mBluetoothService}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa33057afe9bc035501a9db0cd842d0d3}{getState}}() != BluetoothService.STATE\_CONNECTED) \{}
+\DoxyCodeLine{94             Toast.makeText(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_aea04de3c9ae7a2a0946c7c039a42d2d5}{mActivity}}, R.string.not\_connected, Toast.LENGTH\_SHORT).show();}
+\DoxyCodeLine{95             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{96         \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98         \textcolor{comment}{// Check that there's actually something to send}}
+\DoxyCodeLine{99         \textcolor{keywordflow}{if} (message.length() > 0) \{}
+\DoxyCodeLine{100             \textcolor{comment}{// Get the message bytes and tell the BluetoothService to write}}
+\DoxyCodeLine{101             \textcolor{keywordtype}{byte}[] send = message.getBytes();}
+\DoxyCodeLine{102             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a6d4cc2b25e157632e8c0b3d69bcb0062}{mBluetoothService}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_afa27e71cf7b68afa02e6d912dc6e907c}{write}}(send);}
+\DoxyCodeLine{103         \}}
+\DoxyCodeLine{104     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a28dc0a4d1a62315046772ed20815d723}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a28dc0a4d1a62315046772ed20815d723}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!setupComm@{setupComm}}
+\index{setupComm@{setupComm}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{setupComm()}{setupComm()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+setup\+Comm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+initialize \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler}{Message\+Handler}} 
+
+
+
+Definition at line 62 of file Message\+Handler.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62                              \{}
+\DoxyCodeLine{63         Log.d(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a0ab36705ac35817da5d6d7d21779a318}{TAG}}, \textcolor{stringliteral}{"setupComm"});}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_aea04de3c9ae7a2a0946c7c039a42d2d5}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_aea04de3c9ae7a2a0946c7c039a42d2d5}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!mActivity@{mActivity}}
+\index{mActivity@{mActivity}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{mActivity}{mActivity}}
+{\footnotesize\ttfamily Activity hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+m\+Activity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+context 
+
+
+
+Definition at line 28 of file Message\+Handler.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ae5b9a111ab4b922642e376eaa940dd49}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_ae5b9a111ab4b922642e376eaa940dd49}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!mBluetoothAdapter@{mBluetoothAdapter}}
+\index{mBluetoothAdapter@{mBluetoothAdapter}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{mBluetoothAdapter}{mBluetoothAdapter}}
+{\footnotesize\ttfamily Bluetooth\+Adapter hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+m\+Bluetooth\+Adapter = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Local Bluetooth adapter. 
+
+
+
+Definition at line 25 of file Message\+Handler.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a6d4cc2b25e157632e8c0b3d69bcb0062}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a6d4cc2b25e157632e8c0b3d69bcb0062}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!mBluetoothService@{mBluetoothService}}
+\index{mBluetoothService@{mBluetoothService}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{mBluetoothService}{mBluetoothService}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service}{Bluetooth\+Service}} hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+m\+Bluetooth\+Service = null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Member object for the bluetooth services. 
+
+
+
+Definition at line 26 of file Message\+Handler.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a0ab36705ac35817da5d6d7d21779a318}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_message_handler_a0ab36705ac35817da5d6d7d21779a318}} 
+\index{hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}!TAG@{TAG}}
+\index{TAG@{TAG}!hi.world.hello.myapplication.MessageHandler@{hi.world.hello.myapplication.MessageHandler}}
+\subsubsection{\texorpdfstring{TAG}{TAG}}
+{\footnotesize\ttfamily final String hi.\+world.\+hello.\+myapplication.\+Message\+Handler.\+T\+AG = \char`\"{}Message\+Handler\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+debugging 
+
+
+
+Definition at line 23 of file Message\+Handler.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_message_handler_8java}{Message\+Handler.\+java}}\end{DoxyCompactItemize}

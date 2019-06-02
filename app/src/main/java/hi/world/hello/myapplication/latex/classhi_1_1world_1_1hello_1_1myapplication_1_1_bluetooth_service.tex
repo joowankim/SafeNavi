@@ -1,0 +1,788 @@
+\hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service}{}\section{hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service Class Reference}
+\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service}\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+
+
+managing Bluetooth connections  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connected_thread}{Connected\+Thread}}
+\begin{DoxyCompactList}\small\item\em get inputstream and outputstream of bluetooth\+Socket \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connect_thread}{Connect\+Thread}}
+\begin{DoxyCompactList}\small\item\em get a Bluethooth\+Socket to connect with the given Bluetooth\+Device try \{ // M\+Y\+\_\+\+U\+U\+ID is the app\textquotesingle{}s U\+U\+ID string, also used by the server // code tmp = device.\+create\+Rfcomm\+Socket\+To\+Service\+Record(\+M\+Y\+\_\+\+U\+U\+I\+D); \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a2c0b1d538e621bd607a6f90fd4f436a8}{Bluetooth\+Service}} (Activity ac, Handler h)
+\begin{DoxyCompactList}\small\item\em Constructors. \end{DoxyCompactList}\item 
+Bluetooth\+Adapter \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a13b9759e4ae34055ed5a971c9d897a1e}{get\+Bt\+Adapter}} ()
+\begin{DoxyCompactList}\small\item\em get bluetooth adapter \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a95cebd7d24a50c4ac215e2f364647138}{get\+Device\+State}} ()
+\begin{DoxyCompactList}\small\item\em Check the Bluetooth support. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a8420e00ed0378799eeae86fde8cf9ff3}{enable\+Bluetooth}} ()
+\begin{DoxyCompactList}\small\item\em Check the enabled Bluetooth. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a61f42dfb0258017463ecbb947d5c7217}{scan\+Device}} ()
+\begin{DoxyCompactList}\small\item\em Available device search. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a8d6db94de0f1a864a775d1e93f796bab}{get\+Device\+Info}} (Intent data)
+\begin{DoxyCompactList}\small\item\em after scanning and get device info \end{DoxyCompactList}\item 
+synchronized int \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa33057afe9bc035501a9db0cd842d0d3}{get\+State}} ()
+\begin{DoxyCompactList}\small\item\em get the state of Bluetooth \end{DoxyCompactList}\item 
+synchronized void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa380384e7d6817ad7044afefc7ffa447}{start}} ()
+\begin{DoxyCompactList}\small\item\em connection start \end{DoxyCompactList}\item 
+synchronized void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a5af82512cbbc3a5a35ecf015fbb97af3}{connect}} (Bluetooth\+Device device)
+\begin{DoxyCompactList}\small\item\em Initialize \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connect_thread}{Connect\+Thread}} (remove connection of device) \end{DoxyCompactList}\item 
+synchronized void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ab22291b927949cf970eb7a24ab37b27e}{connected}} (Bluetooth\+Socket socket, Bluetooth\+Device device)
+\begin{DoxyCompactList}\small\item\em Initialize \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connected_thread}{Connected\+Thread}}. \end{DoxyCompactList}\item 
+synchronized void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ac2f4c08d272b9426878621463f4c95e9}{stop}} ()
+\begin{DoxyCompactList}\small\item\em all thread stop \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_afa27e71cf7b68afa02e6d912dc6e907c}{write}} (byte\mbox{[}$\,$\mbox{]} out)
+\begin{DoxyCompactList}\small\item\em writing values (sending part) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a84307529177c1fe5ad70e8967dd759eb}{S\+T\+A\+T\+E\+\_\+\+N\+O\+NE}} = 0
+\begin{DoxyCompactList}\small\item\em we\textquotesingle{}re doing nothing \end{DoxyCompactList}\item 
+static final int \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa1fb3aedceb6c7ca7dfcfff5258e82e2}{S\+T\+A\+T\+E\+\_\+\+L\+I\+S\+T\+EN}} = 1
+\begin{DoxyCompactList}\small\item\em now listening for incoming \end{DoxyCompactList}\item 
+static final int \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a3a532ca17415e49fcd2649bb6a9d6ee9}{S\+T\+A\+T\+E\+\_\+\+C\+O\+N\+N\+E\+C\+T\+I\+NG}} = 2
+\begin{DoxyCompactList}\small\item\em now initiating an outgoing \end{DoxyCompactList}\item 
+static final int \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a45e0a4fc5ed009b398c94bd582e35fdc}{S\+T\+A\+T\+E\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED}} = 3
+\begin{DoxyCompactList}\small\item\em now connected to a remote \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+synchronized void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_abb2cc270f42e37935a1e109e5dade414}{set\+State}} (int state)
+\begin{DoxyCompactList}\small\item\em set the state of Bluetooth \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa962cc70fbadf81e4fe92c45a08070b0}{connection\+Failed}} ()
+\begin{DoxyCompactList}\small\item\em setting that connection state is failed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a21ad0d0ad813783648751de971c67209}{connection\+Lost}} ()
+\begin{DoxyCompactList}\small\item\em setting that connection state is lost \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Bluetooth\+Adapter \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ad9ce2f2c502e4639b7bf29372c4854e6}{bt\+Adapter}}
+\begin{DoxyCompactList}\small\item\em bluetooth adapter \end{DoxyCompactList}\item 
+Activity \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a6e2980acba2211ff57f127023d6bc25c}{m\+Activity}}
+\begin{DoxyCompactList}\small\item\em context \end{DoxyCompactList}\item 
+Handler \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_af4425f6d4f4dce5f74d5d0b39c768f89}{m\+Handler}}
+\begin{DoxyCompactList}\small\item\em message handler \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connect_thread}{Connect\+Thread}} \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{m\+Connect\+Thread}}
+\begin{DoxyCompactList}\small\item\em connection thread \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connected_thread}{Connected\+Thread}} \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{m\+Connected\+Thread}}
+\begin{DoxyCompactList}\small\item\em check the state of connection \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa69783785a4561195907af61f6c8dea8}{m\+State}}
+\begin{DoxyCompactList}\small\item\em represent current state \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{T\+AG}} = \char`\"{}Bluetooth\+Service\char`\"{}
+\begin{DoxyCompactList}\small\item\em final \end{DoxyCompactList}\item 
+static final int \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae1da09c51c0833244e37542715cdba89}{R\+E\+Q\+U\+E\+S\+T\+\_\+\+C\+O\+N\+N\+E\+C\+T\+\_\+\+D\+E\+V\+I\+CE}} = 1
+\begin{DoxyCompactList}\small\item\em Intent request code. \end{DoxyCompactList}\item 
+static final int \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a5e102a7114e1327f3016ba2910da9416}{R\+E\+Q\+U\+E\+S\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+BT}} = 2
+\begin{DoxyCompactList}\small\item\em permission \end{DoxyCompactList}\item 
+static final U\+U\+ID \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_abeb9aa3df7dd194901ebd5a465892e40}{M\+Y\+\_\+\+U\+U\+ID}}
+\begin{DoxyCompactList}\small\item\em R\+F\+C\+O\+MM Protocol. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+managing Bluetooth connections 
+
+Definition at line 23 of file Bluetooth\+Service.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a2c0b1d538e621bd607a6f90fd4f436a8}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a2c0b1d538e621bd607a6f90fd4f436a8}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!BluetoothService@{BluetoothService}}
+\index{BluetoothService@{BluetoothService}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{BluetoothService()}{BluetoothService()}}
+{\footnotesize\ttfamily hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+Bluetooth\+Service (\begin{DoxyParamCaption}\item[{Activity}]{ac,  }\item[{Handler}]{h }\end{DoxyParamCaption})}
+
+
+
+Constructors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ac} & context \\
+\hline
+{\em h} & message handler \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56                                                     \{}
+\DoxyCodeLine{57         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a6e2980acba2211ff57f127023d6bc25c}{mActivity}} = ac;}
+\DoxyCodeLine{58         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_af4425f6d4f4dce5f74d5d0b39c768f89}{mHandler}} = h;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \textcolor{comment}{// get BluetoothAdapter}}
+\DoxyCodeLine{61         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ad9ce2f2c502e4639b7bf29372c4854e6}{btAdapter}} = BluetoothAdapter.getDefaultAdapter();}
+\DoxyCodeLine{62     \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a5af82512cbbc3a5a35ecf015fbb97af3}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a5af82512cbbc3a5a35ecf015fbb97af3}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!connect@{connect}}
+\index{connect@{connect}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily synchronized void hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+connect (\begin{DoxyParamCaption}\item[{Bluetooth\+Device}]{device }\end{DoxyParamCaption})}
+
+
+
+Initialize \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connect_thread}{Connect\+Thread}} (remove connection of device) 
+
+if this device is connected sth, it cancel any thread attempting to make a connection and it cancel any thread currently running a connection 
+\begin{DoxyParams}{Parameters}
+{\em device} & device name that will be tried to connect \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 177 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{177                                                              \{}
+\DoxyCodeLine{178         Log.d(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{TAG}}, \textcolor{stringliteral}{"connect to: "} + device);}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180         \textcolor{comment}{// Cancel any thread attempting to make a connection}}
+\DoxyCodeLine{181         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa69783785a4561195907af61f6c8dea8}{mState}} == \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a3a532ca17415e49fcd2649bb6a9d6ee9}{STATE\_CONNECTING}}) \{}
+\DoxyCodeLine{182             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}} == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{185                 \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connect_thread_a620b62ac8b8d35cdd9805ce43b1ccae2}{cancel}}();}
+\DoxyCodeLine{186                 \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}} = \textcolor{keyword}{null};}
+\DoxyCodeLine{187             \}}
+\DoxyCodeLine{188         \}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190         \textcolor{comment}{// Cancel any thread currently running a connection}}
+\DoxyCodeLine{191         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}} == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{194             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connected_thread_ad8e36ab019ad87167993ee39a2ca0797}{cancel}}();}
+\DoxyCodeLine{195             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}} = \textcolor{keyword}{null};}
+\DoxyCodeLine{196         \}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198         \textcolor{comment}{// Start the thread to connect with the given device}}
+\DoxyCodeLine{199         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}} = \textcolor{keyword}{new} ConnectThread(device);}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}}.start();}
+\DoxyCodeLine{202         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_abb2cc270f42e37935a1e109e5dade414}{setState}}(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a3a532ca17415e49fcd2649bb6a9d6ee9}{STATE\_CONNECTING}});}
+\DoxyCodeLine{203     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ab22291b927949cf970eb7a24ab37b27e}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ab22291b927949cf970eb7a24ab37b27e}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!connected@{connected}}
+\index{connected@{connected}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{connected()}{connected()}}
+{\footnotesize\ttfamily synchronized void hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+connected (\begin{DoxyParamCaption}\item[{Bluetooth\+Socket}]{socket,  }\item[{Bluetooth\+Device}]{device }\end{DoxyParamCaption})}
+
+
+
+Initialize \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connected_thread}{Connected\+Thread}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & it it used to connect deivces \\
+\hline
+{\em device} & taregt device name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 208 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{209                                                                \{}
+\DoxyCodeLine{210         Log.d(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{TAG}}, \textcolor{stringliteral}{"connected"});}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212         \textcolor{comment}{// Cancel the thread that completed the connection}}
+\DoxyCodeLine{213         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}} == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{216             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connect_thread_a620b62ac8b8d35cdd9805ce43b1ccae2}{cancel}}();}
+\DoxyCodeLine{217             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}} = \textcolor{keyword}{null};}
+\DoxyCodeLine{218         \}}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220         \textcolor{comment}{// Cancel any thread currently running a connection}}
+\DoxyCodeLine{221         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}} == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{224             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connected_thread_ad8e36ab019ad87167993ee39a2ca0797}{cancel}}();}
+\DoxyCodeLine{225             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}} = \textcolor{keyword}{null};}
+\DoxyCodeLine{226         \}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228         \textcolor{comment}{// Start the thread to manage the connection and perform transmissions}}
+\DoxyCodeLine{229         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}} = \textcolor{keyword}{new} ConnectedThread(socket);}
+\DoxyCodeLine{230         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}}.start();}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_abb2cc270f42e37935a1e109e5dade414}{setState}}(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a45e0a4fc5ed009b398c94bd582e35fdc}{STATE\_CONNECTED}});}
+\DoxyCodeLine{233     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa962cc70fbadf81e4fe92c45a08070b0}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa962cc70fbadf81e4fe92c45a08070b0}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!connectionFailed@{connectionFailed}}
+\index{connectionFailed@{connectionFailed}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{connectionFailed()}{connectionFailed()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+connection\+Failed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+setting that connection state is failed 
+
+
+
+Definition at line 265 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{265                                     \{}
+\DoxyCodeLine{266         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_abb2cc270f42e37935a1e109e5dade414}{setState}}(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa1fb3aedceb6c7ca7dfcfff5258e82e2}{STATE\_LISTEN}});}
+\DoxyCodeLine{267     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a21ad0d0ad813783648751de971c67209}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a21ad0d0ad813783648751de971c67209}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!connectionLost@{connectionLost}}
+\index{connectionLost@{connectionLost}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{connectionLost()}{connectionLost()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+connection\+Lost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+setting that connection state is lost 
+
+
+
+Definition at line 270 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{270                                   \{}
+\DoxyCodeLine{271         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_abb2cc270f42e37935a1e109e5dade414}{setState}}(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa1fb3aedceb6c7ca7dfcfff5258e82e2}{STATE\_LISTEN}});}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a8420e00ed0378799eeae86fde8cf9ff3}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a8420e00ed0378799eeae86fde8cf9ff3}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!enableBluetooth@{enableBluetooth}}
+\index{enableBluetooth@{enableBluetooth}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{enableBluetooth()}{enableBluetooth()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+enable\+Bluetooth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check the enabled Bluetooth. 
+
+
+
+Definition at line 91 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91                                   \{}
+\DoxyCodeLine{92         Log.i(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{TAG}}, \textcolor{stringliteral}{"Check the enabled Bluetooth"});}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ad9ce2f2c502e4639b7bf29372c4854e6}{btAdapter}}.isEnabled()) \{}
+\DoxyCodeLine{95             \textcolor{comment}{// bluetooth state of device is ON}}
+\DoxyCodeLine{96             Log.d(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{TAG}}, \textcolor{stringliteral}{"Bluetooth Enable Now"});}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98             \textcolor{comment}{// Next Step}}
+\DoxyCodeLine{99             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a61f42dfb0258017463ecbb947d5c7217}{scanDevice}}();}
+\DoxyCodeLine{100         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{101             \textcolor{comment}{// bluetooth state of device is OFF}}
+\DoxyCodeLine{102             Log.d(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{TAG}}, \textcolor{stringliteral}{"Bluetooth Enable Request"});}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104             Intent i = \textcolor{keyword}{new} Intent(BluetoothAdapter.ACTION\_REQUEST\_ENABLE);}
+\DoxyCodeLine{105             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a6e2980acba2211ff57f127023d6bc25c}{mActivity}}.startActivityForResult(i, \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a5e102a7114e1327f3016ba2910da9416}{REQUEST\_ENABLE\_BT}});}
+\DoxyCodeLine{106         \}}
+\DoxyCodeLine{107     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a13b9759e4ae34055ed5a971c9d897a1e}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a13b9759e4ae34055ed5a971c9d897a1e}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!getBtAdapter@{getBtAdapter}}
+\index{getBtAdapter@{getBtAdapter}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{getBtAdapter()}{getBtAdapter()}}
+{\footnotesize\ttfamily Bluetooth\+Adapter hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+get\+Bt\+Adapter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get bluetooth adapter 
+
+
+
+Definition at line 64 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64                                            \{}
+\DoxyCodeLine{65         \textcolor{keywordflow}{return} \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ad9ce2f2c502e4639b7bf29372c4854e6}{btAdapter}};}
+\DoxyCodeLine{66     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a8d6db94de0f1a864a775d1e93f796bab}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a8d6db94de0f1a864a775d1e93f796bab}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!getDeviceInfo@{getDeviceInfo}}
+\index{getDeviceInfo@{getDeviceInfo}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{getDeviceInfo()}{getDeviceInfo()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+get\+Device\+Info (\begin{DoxyParamCaption}\item[{Intent}]{data }\end{DoxyParamCaption})}
+
+
+
+after scanning and get device info 
+
+get the M\+AC addresses of each device that can be connected and objects of the devices 
+\begin{DoxyParams}{Parameters}
+{\em data} & device list that can be connected through bluetooth \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 125 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125                                            \{}
+\DoxyCodeLine{126         \textcolor{comment}{// Get the device MAC address}}
+\DoxyCodeLine{127         String address = data.getExtras().getString(DeviceListActivity.EXTRA\_DEVICE\_ADDRESS);}
+\DoxyCodeLine{128         \textcolor{comment}{// Get the BluetoothDevice object}}
+\DoxyCodeLine{129         BluetoothDevice device = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ad9ce2f2c502e4639b7bf29372c4854e6}{btAdapter}}.getRemoteDevice(address);}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131         Log.d(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{TAG}}, \textcolor{stringliteral}{"Get Device Info \(\backslash\)n"} + \textcolor{stringliteral}{"address : "} + address);}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a5af82512cbbc3a5a35ecf015fbb97af3}{connect}}(device);}
+\DoxyCodeLine{134     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a95cebd7d24a50c4ac215e2f364647138}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a95cebd7d24a50c4ac215e2f364647138}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!getDeviceState@{getDeviceState}}
+\index{getDeviceState@{getDeviceState}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{getDeviceState()}{getDeviceState()}}
+{\footnotesize\ttfamily boolean hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+get\+Device\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check the Bluetooth support. 
+
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+
+
+Definition at line 73 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73                                     \{}
+\DoxyCodeLine{74         Log.i(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{TAG}}, \textcolor{stringliteral}{"Check the Bluetooth support"});}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ad9ce2f2c502e4639b7bf29372c4854e6}{btAdapter}} == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{77             Log.d(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{TAG}}, \textcolor{stringliteral}{"Bluetooth is not available"});}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{82             Log.d(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{TAG}}, \textcolor{stringliteral}{"Bluetooth is available"});}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{85         \}}
+\DoxyCodeLine{86     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa33057afe9bc035501a9db0cd842d0d3}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa33057afe9bc035501a9db0cd842d0d3}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!getState@{getState}}
+\index{getState@{getState}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily synchronized int hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get the state of Bluetooth 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & state \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 147 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{147                                        \{}
+\DoxyCodeLine{148         \textcolor{keywordflow}{return} \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa69783785a4561195907af61f6c8dea8}{mState}};}
+\DoxyCodeLine{149     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a61f42dfb0258017463ecbb947d5c7217}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a61f42dfb0258017463ecbb947d5c7217}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!scanDevice@{scanDevice}}
+\index{scanDevice@{scanDevice}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{scanDevice()}{scanDevice()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+scan\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Available device search. 
+
+
+
+Definition at line 112 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112                              \{}
+\DoxyCodeLine{113         Log.d(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{TAG}}, \textcolor{stringliteral}{"Scan Device"});}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115         Intent serverIntent = \textcolor{keyword}{new} Intent(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a6e2980acba2211ff57f127023d6bc25c}{mActivity}}, DeviceListActivity.class);}
+\DoxyCodeLine{116         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a6e2980acba2211ff57f127023d6bc25c}{mActivity}}.startActivityForResult(serverIntent, \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae1da09c51c0833244e37542715cdba89}{REQUEST\_CONNECT\_DEVICE}});}
+\DoxyCodeLine{117     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_abb2cc270f42e37935a1e109e5dade414}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_abb2cc270f42e37935a1e109e5dade414}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!setState@{setState}}
+\index{setState@{setState}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily synchronized void hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+set\+State (\begin{DoxyParamCaption}\item[{int}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+set the state of Bluetooth 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & current state \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 140 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{140                                                   \{}
+\DoxyCodeLine{141         Log.d(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{TAG}}, \textcolor{stringliteral}{"setState() "} + \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa69783785a4561195907af61f6c8dea8}{mState}} + \textcolor{stringliteral}{" -> "} + state);}
+\DoxyCodeLine{142         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa69783785a4561195907af61f6c8dea8}{mState}} = state;}
+\DoxyCodeLine{143     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa380384e7d6817ad7044afefc7ffa447}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa380384e7d6817ad7044afefc7ffa447}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!start@{start}}
+\index{start@{start}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily synchronized void hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+connection start 
+
+if m\+Connect\+Thread is null, it cancel any thread attempting to make a connection if m\+Connected\+Thread is null, it cancel any thread currently running a connection 
+
+Definition at line 153 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{153                                      \{}
+\DoxyCodeLine{154         Log.d(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{TAG}}, \textcolor{stringliteral}{"start"});}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156         \textcolor{comment}{// Cancel any thread attempting to make a connection}}
+\DoxyCodeLine{157         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}} == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{160             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connect_thread_a620b62ac8b8d35cdd9805ce43b1ccae2}{cancel}}();}
+\DoxyCodeLine{161             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}} = \textcolor{keyword}{null};}
+\DoxyCodeLine{162         \}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164         \textcolor{comment}{// Cancel any thread currently running a connection}}
+\DoxyCodeLine{165         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}} == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{168             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connected_thread_ad8e36ab019ad87167993ee39a2ca0797}{cancel}}();}
+\DoxyCodeLine{169             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}} = \textcolor{keyword}{null};}
+\DoxyCodeLine{170         \}}
+\DoxyCodeLine{171     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ac2f4c08d272b9426878621463f4c95e9}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ac2f4c08d272b9426878621463f4c95e9}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!stop@{stop}}
+\index{stop@{stop}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily synchronized void hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+all thread stop 
+
+
+
+Definition at line 236 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{236                                     \{}
+\DoxyCodeLine{237         Log.d(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}{TAG}}, \textcolor{stringliteral}{"stop"});}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}} != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{240             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connect_thread_a620b62ac8b8d35cdd9805ce43b1ccae2}{cancel}}();}
+\DoxyCodeLine{241             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}{mConnectThread}} = \textcolor{keyword}{null};}
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}} != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{245             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}}.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connected_thread_ad8e36ab019ad87167993ee39a2ca0797}{cancel}}();}
+\DoxyCodeLine{246             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}} = \textcolor{keyword}{null};}
+\DoxyCodeLine{247         \}}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_abb2cc270f42e37935a1e109e5dade414}{setState}}(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a84307529177c1fe5ad70e8967dd759eb}{STATE\_NONE}});}
+\DoxyCodeLine{250     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_afa27e71cf7b68afa02e6d912dc6e907c}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_afa27e71cf7b68afa02e6d912dc6e907c}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!write@{write}}
+\index{write@{write}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+write (\begin{DoxyParamCaption}\item[{byte \mbox{[}$\,$\mbox{]}}]{out }\end{DoxyParamCaption})}
+
+
+
+writing values (sending part) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & sent message string \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 254 of file Bluetooth\+Service.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{254                                   \{ \textcolor{comment}{// Create temporary object}}
+\DoxyCodeLine{255         ConnectedThread r; \textcolor{comment}{// Synchronize a copy of the ConnectedThread}}
+\DoxyCodeLine{256         \textcolor{keyword}{synchronized} (\textcolor{keyword}{this}) \{}
+\DoxyCodeLine{257             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa69783785a4561195907af61f6c8dea8}{mState}} != \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a45e0a4fc5ed009b398c94bd582e35fdc}{STATE\_CONNECTED}})}
+\DoxyCodeLine{258                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{259             r = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}{mConnectedThread}};}
+\DoxyCodeLine{260         \} \textcolor{comment}{// Perform the write unsynchronized}}
+\DoxyCodeLine{261         r.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connected_thread_af88ff7e7f927c756e5dc964bcd742ad9}{write}}(out);}
+\DoxyCodeLine{262     \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ad9ce2f2c502e4639b7bf29372c4854e6}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ad9ce2f2c502e4639b7bf29372c4854e6}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!btAdapter@{btAdapter}}
+\index{btAdapter@{btAdapter}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{btAdapter}{btAdapter}}
+{\footnotesize\ttfamily Bluetooth\+Adapter hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+bt\+Adapter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+bluetooth adapter 
+
+
+
+Definition at line 35 of file Bluetooth\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a6e2980acba2211ff57f127023d6bc25c}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a6e2980acba2211ff57f127023d6bc25c}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!mActivity@{mActivity}}
+\index{mActivity@{mActivity}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{mActivity}{mActivity}}
+{\footnotesize\ttfamily Activity hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+m\+Activity\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+context 
+
+
+
+Definition at line 37 of file Bluetooth\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae51e1b92ba8187d51c1fd20010839f80}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!mConnectedThread@{mConnectedThread}}
+\index{mConnectedThread@{mConnectedThread}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{mConnectedThread}{mConnectedThread}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connected_thread}{Connected\+Thread}} hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+m\+Connected\+Thread\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+check the state of connection 
+
+
+
+Definition at line 41 of file Bluetooth\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aef012419760d62f7b8ebaa98229e1e4f}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!mConnectThread@{mConnectThread}}
+\index{mConnectThread@{mConnectThread}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{mConnectThread}{mConnectThread}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_1_1_connect_thread}{Connect\+Thread}} hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+m\+Connect\+Thread\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+connection thread 
+
+
+
+Definition at line 40 of file Bluetooth\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_af4425f6d4f4dce5f74d5d0b39c768f89}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_af4425f6d4f4dce5f74d5d0b39c768f89}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!mHandler@{mHandler}}
+\index{mHandler@{mHandler}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{mHandler}{mHandler}}
+{\footnotesize\ttfamily Handler hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+m\+Handler\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+message handler 
+
+
+
+Definition at line 38 of file Bluetooth\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa69783785a4561195907af61f6c8dea8}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa69783785a4561195907af61f6c8dea8}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!mState@{mState}}
+\index{mState@{mState}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{mState}{mState}}
+{\footnotesize\ttfamily int hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+m\+State\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+represent current state 
+
+
+
+Definition at line 43 of file Bluetooth\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_abeb9aa3df7dd194901ebd5a465892e40}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_abeb9aa3df7dd194901ebd5a465892e40}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!MY\_UUID@{MY\_UUID}}
+\index{MY\_UUID@{MY\_UUID}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{MY\_UUID}{MY\_UUID}}
+{\footnotesize\ttfamily final U\+U\+ID hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+M\+Y\+\_\+\+U\+U\+ID\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= UUID}
+\DoxyCodeLine{            .fromString(\textcolor{stringliteral}{"your UUID KEY"})}
+
+\end{DoxyCode}
+
+
+R\+F\+C\+O\+MM Protocol. 
+
+
+
+Definition at line 32 of file Bluetooth\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae1da09c51c0833244e37542715cdba89}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_ae1da09c51c0833244e37542715cdba89}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!REQUEST\_CONNECT\_DEVICE@{REQUEST\_CONNECT\_DEVICE}}
+\index{REQUEST\_CONNECT\_DEVICE@{REQUEST\_CONNECT\_DEVICE}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{REQUEST\_CONNECT\_DEVICE}{REQUEST\_CONNECT\_DEVICE}}
+{\footnotesize\ttfamily final int hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+R\+E\+Q\+U\+E\+S\+T\+\_\+\+C\+O\+N\+N\+E\+C\+T\+\_\+\+D\+E\+V\+I\+CE = 1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Intent request code. 
+
+request 
+
+Definition at line 28 of file Bluetooth\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a5e102a7114e1327f3016ba2910da9416}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a5e102a7114e1327f3016ba2910da9416}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!REQUEST\_ENABLE\_BT@{REQUEST\_ENABLE\_BT}}
+\index{REQUEST\_ENABLE\_BT@{REQUEST\_ENABLE\_BT}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{REQUEST\_ENABLE\_BT}{REQUEST\_ENABLE\_BT}}
+{\footnotesize\ttfamily final int hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+R\+E\+Q\+U\+E\+S\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+BT = 2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+permission 
+
+
+
+Definition at line 29 of file Bluetooth\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a45e0a4fc5ed009b398c94bd582e35fdc}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a45e0a4fc5ed009b398c94bd582e35fdc}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!STATE\_CONNECTED@{STATE\_CONNECTED}}
+\index{STATE\_CONNECTED@{STATE\_CONNECTED}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{STATE\_CONNECTED}{STATE\_CONNECTED}}
+{\footnotesize\ttfamily final int hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+S\+T\+A\+T\+E\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED = 3\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+now connected to a remote 
+
+
+
+Definition at line 51 of file Bluetooth\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a3a532ca17415e49fcd2649bb6a9d6ee9}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a3a532ca17415e49fcd2649bb6a9d6ee9}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!STATE\_CONNECTING@{STATE\_CONNECTING}}
+\index{STATE\_CONNECTING@{STATE\_CONNECTING}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{STATE\_CONNECTING}{STATE\_CONNECTING}}
+{\footnotesize\ttfamily final int hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+S\+T\+A\+T\+E\+\_\+\+C\+O\+N\+N\+E\+C\+T\+I\+NG = 2\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+now initiating an outgoing 
+
+
+
+Definition at line 49 of file Bluetooth\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa1fb3aedceb6c7ca7dfcfff5258e82e2}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_aa1fb3aedceb6c7ca7dfcfff5258e82e2}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!STATE\_LISTEN@{STATE\_LISTEN}}
+\index{STATE\_LISTEN@{STATE\_LISTEN}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{STATE\_LISTEN}{STATE\_LISTEN}}
+{\footnotesize\ttfamily final int hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+S\+T\+A\+T\+E\+\_\+\+L\+I\+S\+T\+EN = 1\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+now listening for incoming 
+
+
+
+Definition at line 47 of file Bluetooth\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a84307529177c1fe5ad70e8967dd759eb}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a84307529177c1fe5ad70e8967dd759eb}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!STATE\_NONE@{STATE\_NONE}}
+\index{STATE\_NONE@{STATE\_NONE}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{STATE\_NONE}{STATE\_NONE}}
+{\footnotesize\ttfamily final int hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+S\+T\+A\+T\+E\+\_\+\+N\+O\+NE = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+we\textquotesingle{}re doing nothing 
+
+
+
+Definition at line 46 of file Bluetooth\+Service.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_bluetooth_service_a62016c21137a1fcc9208eef536ce7fd9}} 
+\index{hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}!TAG@{TAG}}
+\index{TAG@{TAG}!hi.world.hello.myapplication.BluetoothService@{hi.world.hello.myapplication.BluetoothService}}
+\subsubsection{\texorpdfstring{TAG}{TAG}}
+{\footnotesize\ttfamily final String hi.\+world.\+hello.\+myapplication.\+Bluetooth\+Service.\+T\+AG = \char`\"{}Bluetooth\+Service\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+final 
+
+for Debugging 
+
+Definition at line 25 of file Bluetooth\+Service.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_bluetooth_service_8java}{Bluetooth\+Service.\+java}}\end{DoxyCompactItemize}

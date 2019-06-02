@@ -1,0 +1,260 @@
+\hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter}{}\section{hi.\+world.\+hello.\+myapplication.\+List\+View\+Adapter Class Reference}
+\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter}\index{hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}}
+
+
+show List\+View  
+
+
+Inheritance diagram for hi.\+world.\+hello.\+myapplication.\+List\+View\+Adapter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries View\+Holder}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_ac7ae7f029134c2281c453b8e449365d6}{List\+View\+Adapter}} (List$<$ T\+Map\+P\+O\+I\+Item $>$ \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_adbc7d93004ca3fd896d3aa34fea5aec0}{list}}, Context \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a71fc8d65a832fec714a0ea56c63536fe}{context}})
+\begin{DoxyCompactList}\small\item\em constructor of \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter}{List\+View\+Adapter}} \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a0472043e23ede876a595e43dc0a1efcc}{get\+Count}} ()
+\begin{DoxyCompactList}\small\item\em get list size \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_abf2e048cb1d281b162ccbbf547d13ffe}{get\+Item\+Id}} (int position)
+\begin{DoxyCompactList}\small\item\em get item id \end{DoxyCompactList}\item 
+Object \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_ae1620b5eabf5876fb4a8184780e56802}{get\+Item}} (int position)
+\begin{DoxyCompactList}\small\item\em get item \end{DoxyCompactList}\item 
+View \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a1a3e06698d2fb86b38e6042010dace6a}{get\+View}} (int position, View convert\+View, View\+Group parent)
+\begin{DoxyCompactList}\small\item\em floating view of item on list \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Context \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a71fc8d65a832fec714a0ea56c63536fe}{context}}
+\item 
+List$<$ T\+Map\+P\+O\+I\+Item $>$ \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_adbc7d93004ca3fd896d3aa34fea5aec0}{list}}
+\item 
+Layout\+Inflater \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a2f107aeb42c7961588be8ad1c20e93c3}{inflate}}
+\item 
+View\+Holder \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a90d289e2054c3deb8a8c2c80abdd5ba1}{view\+Holder}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+show List\+View 
+
+Definition at line 18 of file List\+View\+Adapter.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_ac7ae7f029134c2281c453b8e449365d6}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_ac7ae7f029134c2281c453b8e449365d6}} 
+\index{hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}!ListViewAdapter@{ListViewAdapter}}
+\index{ListViewAdapter@{ListViewAdapter}!hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}}
+\subsubsection{\texorpdfstring{ListViewAdapter()}{ListViewAdapter()}}
+{\footnotesize\ttfamily hi.\+world.\+hello.\+myapplication.\+List\+View\+Adapter.\+List\+View\+Adapter (\begin{DoxyParamCaption}\item[{List$<$ T\+Map\+P\+O\+I\+Item $>$}]{list,  }\item[{Context}]{context }\end{DoxyParamCaption})}
+
+
+
+constructor of \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter}{List\+View\+Adapter}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & list \\
+\hline
+{\em context} & context of current scene \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 28 of file List\+View\+Adapter.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                                                                     \{}
+\DoxyCodeLine{29         this.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_adbc7d93004ca3fd896d3aa34fea5aec0}{list}} = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_adbc7d93004ca3fd896d3aa34fea5aec0}{list}};}
+\DoxyCodeLine{30         this.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a71fc8d65a832fec714a0ea56c63536fe}{context}} = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a71fc8d65a832fec714a0ea56c63536fe}{context}};}
+\DoxyCodeLine{31         this.\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a2f107aeb42c7961588be8ad1c20e93c3}{inflate}} = LayoutInflater.from(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a71fc8d65a832fec714a0ea56c63536fe}{context}});}
+\DoxyCodeLine{32     \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a0472043e23ede876a595e43dc0a1efcc}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a0472043e23ede876a595e43dc0a1efcc}} 
+\index{hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}!getCount@{getCount}}
+\index{getCount@{getCount}!hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}}
+\subsubsection{\texorpdfstring{getCount()}{getCount()}}
+{\footnotesize\ttfamily int hi.\+world.\+hello.\+myapplication.\+List\+View\+Adapter.\+get\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get list size 
+
+\begin{DoxyReturn}{Returns}
+list size 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file List\+View\+Adapter.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37                          \{}
+\DoxyCodeLine{38         \textcolor{keywordflow}{return} \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_adbc7d93004ca3fd896d3aa34fea5aec0}{list}}.size();}
+\DoxyCodeLine{39     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_ae1620b5eabf5876fb4a8184780e56802}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_ae1620b5eabf5876fb4a8184780e56802}} 
+\index{hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}!getItem@{getItem}}
+\index{getItem@{getItem}!hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}}
+\subsubsection{\texorpdfstring{getItem()}{getItem()}}
+{\footnotesize\ttfamily Object hi.\+world.\+hello.\+myapplication.\+List\+View\+Adapter.\+get\+Item (\begin{DoxyParamCaption}\item[{int}]{position }\end{DoxyParamCaption})}
+
+
+
+get item 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & current item\textquotesingle{}s location in List\+View \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the pointing item information 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file List\+View\+Adapter.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51                                        \{}
+\DoxyCodeLine{52         \textcolor{keywordflow}{return} \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_adbc7d93004ca3fd896d3aa34fea5aec0}{list}}.get(position);}
+\DoxyCodeLine{53     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_abf2e048cb1d281b162ccbbf547d13ffe}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_abf2e048cb1d281b162ccbbf547d13ffe}} 
+\index{hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}!getItemId@{getItemId}}
+\index{getItemId@{getItemId}!hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}}
+\subsubsection{\texorpdfstring{getItemId()}{getItemId()}}
+{\footnotesize\ttfamily long hi.\+world.\+hello.\+myapplication.\+List\+View\+Adapter.\+get\+Item\+Id (\begin{DoxyParamCaption}\item[{int}]{position }\end{DoxyParamCaption})}
+
+
+
+get item id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & current item\textquotesingle{}s location in List\+View \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current position of the item 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file List\+View\+Adapter.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                                        \{}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} position;}
+\DoxyCodeLine{46     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a1a3e06698d2fb86b38e6042010dace6a}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a1a3e06698d2fb86b38e6042010dace6a}} 
+\index{hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}!getView@{getView}}
+\index{getView@{getView}!hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}}
+\subsubsection{\texorpdfstring{getView()}{getView()}}
+{\footnotesize\ttfamily View hi.\+world.\+hello.\+myapplication.\+List\+View\+Adapter.\+get\+View (\begin{DoxyParamCaption}\item[{int}]{position,  }\item[{View}]{convert\+View,  }\item[{View\+Group}]{parent }\end{DoxyParamCaption})}
+
+
+
+floating view of item on list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & item\textquotesingle{}s position \\
+\hline
+{\em covert\+View} & view \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file List\+View\+Adapter.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                                                          \{}
+\DoxyCodeLine{60         \textcolor{keywordflow}{if} (convertView == \textcolor{keyword}{null})\{}
+\DoxyCodeLine{61             convertView = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a2f107aeb42c7961588be8ad1c20e93c3}{inflate}}.inflate(R.layout.custom\_listview, \textcolor{keyword}{null});}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a90d289e2054c3deb8a8c2c80abdd5ba1}{viewHolder}} = \textcolor{keyword}{new} ViewHolder();}
+\DoxyCodeLine{64             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a90d289e2054c3deb8a8c2c80abdd5ba1}{viewHolder}}.label = (TextView) convertView.findViewById(R.id.name);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66             convertView.setTag(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a90d289e2054c3deb8a8c2c80abdd5ba1}{viewHolder}});}
+\DoxyCodeLine{67         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{68             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a90d289e2054c3deb8a8c2c80abdd5ba1}{viewHolder}} = (ViewHolder)convertView.getTag();}
+\DoxyCodeLine{69         \}}
+\DoxyCodeLine{70         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{71             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a90d289e2054c3deb8a8c2c80abdd5ba1}{viewHolder}}.label.setText(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_adbc7d93004ca3fd896d3aa34fea5aec0}{list}}.get(position).getPOIName().toString());}
+\DoxyCodeLine{72         \} \textcolor{keywordflow}{catch}(Exception e)\{}
+\DoxyCodeLine{73             e.printStackTrace();}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75         \textcolor{keywordflow}{return} convertView;}
+\DoxyCodeLine{76     \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a71fc8d65a832fec714a0ea56c63536fe}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a71fc8d65a832fec714a0ea56c63536fe}} 
+\index{hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}!context@{context}}
+\index{context@{context}!hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}}
+\subsubsection{\texorpdfstring{context}{context}}
+{\footnotesize\ttfamily Context hi.\+world.\+hello.\+myapplication.\+List\+View\+Adapter.\+context\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 20 of file List\+View\+Adapter.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a2f107aeb42c7961588be8ad1c20e93c3}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a2f107aeb42c7961588be8ad1c20e93c3}} 
+\index{hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}!inflate@{inflate}}
+\index{inflate@{inflate}!hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}}
+\subsubsection{\texorpdfstring{inflate}{inflate}}
+{\footnotesize\ttfamily Layout\+Inflater hi.\+world.\+hello.\+myapplication.\+List\+View\+Adapter.\+inflate\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 22 of file List\+View\+Adapter.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_adbc7d93004ca3fd896d3aa34fea5aec0}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_adbc7d93004ca3fd896d3aa34fea5aec0}} 
+\index{hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}!list@{list}}
+\index{list@{list}!hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}}
+\subsubsection{\texorpdfstring{list}{list}}
+{\footnotesize\ttfamily List$<$T\+Map\+P\+O\+I\+Item$>$ hi.\+world.\+hello.\+myapplication.\+List\+View\+Adapter.\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 21 of file List\+View\+Adapter.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a90d289e2054c3deb8a8c2c80abdd5ba1}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_list_view_adapter_a90d289e2054c3deb8a8c2c80abdd5ba1}} 
+\index{hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}!viewHolder@{viewHolder}}
+\index{viewHolder@{viewHolder}!hi.world.hello.myapplication.ListViewAdapter@{hi.world.hello.myapplication.ListViewAdapter}}
+\subsubsection{\texorpdfstring{viewHolder}{viewHolder}}
+{\footnotesize\ttfamily View\+Holder hi.\+world.\+hello.\+myapplication.\+List\+View\+Adapter.\+view\+Holder\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 23 of file List\+View\+Adapter.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_list_view_adapter_8java}{List\+View\+Adapter.\+java}}\end{DoxyCompactItemize}

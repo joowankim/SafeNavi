@@ -1,0 +1,401 @@
+\hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide}{}\section{hi.\+world.\+hello.\+myapplication.\+Road\+Guide Class Reference}
+\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide}\index{hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}}
+
+
+get the information of the path and sent the data to Bluetooth glasses  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a26bab1e856c7986a35531692d9d84f4e}{Road\+Guide}} ()
+\begin{DoxyCompactList}\small\item\em constructor of \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide}{Road\+Guide}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_abaddcd57733c5c7633a8b2e3e47629f8}{set\+My\+Location}} (T\+Map\+Point location)
+\begin{DoxyCompactList}\small\item\em set current user\textquotesingle{}s location \end{DoxyCompactList}\item 
+T\+Map\+P\+O\+I\+Item \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a7a914dc7c0657710e464f22d6423bb71}{get\+Next\+P\+OI}} ()
+\begin{DoxyCompactList}\small\item\em get next P\+O\+IT in the path to destination \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a00e2b29e78e42d25e66d2858c4165cd1}{get\+Turntype}} ()
+\begin{DoxyCompactList}\small\item\em get turn type that user should know and do to go destination \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a1630eb12d7c616ab290bbefd31b412c4}{change\+Index}} ()
+\begin{DoxyCompactList}\small\item\em change the pointing index of P\+OI in path. The P\+OI should be the nearest P\+OI from current location \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_af87d3224240ef90fcb995287620684d7}{toward}} (T\+Map\+Point src, T\+Map\+Point des)
+\begin{DoxyCompactList}\small\item\em finding the path to destination \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a8125d240bc324c49dca37ed23beb732c}{set\+Index}} ()
+\begin{DoxyCompactList}\small\item\em set indices including last, next, line index \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_ad2c16f57da4010717fc637faa75d45ca}{get\+Point\+Address}} (T\+Map\+Point point)
+\begin{DoxyCompactList}\small\item\em get read address of the location \end{DoxyCompactList}\item 
+T\+Map\+Point \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_ac4a16eda56bb3cfbd5d4d3bf02a983c9}{string\+To\+Point}} (String str)
+\begin{DoxyCompactList}\small\item\em convert string address to coordinate point \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_ae6a5b107e6391950548cb7f5c82eb728}{address\+P\+OI}} (String address)
+\begin{DoxyCompactList}\small\item\em get real address of P\+OI \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a509b589225474dfb7864262b59a73019}{T\+AG}} = \char`\"{}Road\+Guide\char`\"{}
+\begin{DoxyCompactList}\small\item\em debugging \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+get the information of the path and sent the data to Bluetooth glasses 
+
+Definition at line 19 of file Road\+Guide.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a26bab1e856c7986a35531692d9d84f4e}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a26bab1e856c7986a35531692d9d84f4e}} 
+\index{hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}!RoadGuide@{RoadGuide}}
+\index{RoadGuide@{RoadGuide}!hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}}
+\subsubsection{\texorpdfstring{RoadGuide()}{RoadGuide()}}
+{\footnotesize\ttfamily hi.\+world.\+hello.\+myapplication.\+Road\+Guide.\+Road\+Guide (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+constructor of \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide}{Road\+Guide}} 
+
+
+
+Definition at line 41 of file Road\+Guide.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41                        \{}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_ae6a5b107e6391950548cb7f5c82eb728}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_ae6a5b107e6391950548cb7f5c82eb728}} 
+\index{hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}!addressPOI@{addressPOI}}
+\index{addressPOI@{addressPOI}!hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}}
+\subsubsection{\texorpdfstring{addressPOI()}{addressPOI()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Road\+Guide.\+address\+P\+OI (\begin{DoxyParamCaption}\item[{String}]{address }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+get real address of P\+OI 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & real address \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 163 of file Road\+Guide.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{163                                             \{}
+\DoxyCodeLine{164         tMapData.findAddressPOI(address, \textcolor{keyword}{new} TMapData.FindAddressPOIListenerCallback() \{}
+\DoxyCodeLine{165             @Override}
+\DoxyCodeLine{166             \textcolor{keyword}{public} \textcolor{keywordtype}{void} onFindAddressPOI(ArrayList<TMapPOIItem> arrayList) \{}
+\DoxyCodeLine{167                 \textcolor{keywordflow}{if} (arrayList != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{168                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < arrayList.size(); i++) \{}
+\DoxyCodeLine{169                         TMapPOIItem item = arrayList.get(i);}
+\DoxyCodeLine{170                         Log.i(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a509b589225474dfb7864262b59a73019}{TAG}} + \textcolor{stringliteral}{"POI"}, \textcolor{stringliteral}{"POI Name: "} + item.getPOIName().toString() + \textcolor{stringliteral}{", "} +}
+\DoxyCodeLine{171                                 \textcolor{stringliteral}{"Address: "} + item.getPOIAddress().replace(\textcolor{stringliteral}{"null"}, \textcolor{stringliteral}{""}) + \textcolor{stringliteral}{", "} +}
+\DoxyCodeLine{172                                 \textcolor{stringliteral}{"Point: "} + item.getPOIPoint().toString());}
+\DoxyCodeLine{173                     \}}
+\DoxyCodeLine{174                     passList.add(arrayList.get(0));}
+\DoxyCodeLine{175                 \} \textcolor{keywordflow}{else} \{ \}}
+\DoxyCodeLine{176             \}}
+\DoxyCodeLine{177         \});}
+\DoxyCodeLine{178     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a1630eb12d7c616ab290bbefd31b412c4}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a1630eb12d7c616ab290bbefd31b412c4}} 
+\index{hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}!changeIndex@{changeIndex}}
+\index{changeIndex@{changeIndex}!hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}}
+\subsubsection{\texorpdfstring{changeIndex()}{changeIndex()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Road\+Guide.\+change\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+change the pointing index of P\+OI in path. The P\+OI should be the nearest P\+OI from current location 
+
+
+
+Definition at line 78 of file Road\+Guide.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78                               \{}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80         \textcolor{comment}{// distance between user's location and the next POI}}
+\DoxyCodeLine{81         \textcolor{keywordtype}{double} toNextPOI = passList.get(nextIndex).getDistance(myLocation);}
+\DoxyCodeLine{82         \textcolor{comment}{// distance between recent POI and the next POI}}
+\DoxyCodeLine{83         \textcolor{keywordtype}{double} inter = Double.parseDouble(distanceList.get(lineIndex));}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85         \textcolor{keywordflow}{if} (toNextPOI >= inter) \{}
+\DoxyCodeLine{86             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_af87d3224240ef90fcb995287620684d7}{toward}}(myLocation, destination);}
+\DoxyCodeLine{87             Log.i(\textcolor{stringliteral}{"changeIndex"}, \textcolor{stringliteral}{"경로를 재탐색 합니다"});}
+\DoxyCodeLine{88         \}}
+\DoxyCodeLine{89         \textcolor{keywordflow}{if} (toNextPOI < 10) \{}
+\DoxyCodeLine{90             lastIndex = nextIndex;}
+\DoxyCodeLine{91             nextIndex++;}
+\DoxyCodeLine{92             lineIndex++;}
+\DoxyCodeLine{93         \}}
+\DoxyCodeLine{94     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a7a914dc7c0657710e464f22d6423bb71}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a7a914dc7c0657710e464f22d6423bb71}} 
+\index{hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}!getNextPOI@{getNextPOI}}
+\index{getNextPOI@{getNextPOI}!hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}}
+\subsubsection{\texorpdfstring{getNextPOI()}{getNextPOI()}}
+{\footnotesize\ttfamily T\+Map\+P\+O\+I\+Item hi.\+world.\+hello.\+myapplication.\+Road\+Guide.\+get\+Next\+P\+OI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get next P\+O\+IT in the path to destination 
+
+\begin{DoxyReturn}{Returns}
+next P\+OI in the path 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file Road\+Guide.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55                                     \{}
+\DoxyCodeLine{56         Log.i(\textcolor{stringliteral}{"Size"}, passList.size() + \textcolor{stringliteral}{", "} + addressList.size() + \textcolor{stringliteral}{", "} + turntypeList.size());}
+\DoxyCodeLine{57         \textcolor{keywordflow}{if} (passList.get(nextIndex) != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{58             \textcolor{keywordflow}{return} passList.get(nextIndex);}
+\DoxyCodeLine{59         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{60             \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{62     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_ad2c16f57da4010717fc637faa75d45ca}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_ad2c16f57da4010717fc637faa75d45ca}} 
+\index{hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}!getPointAddress@{getPointAddress}}
+\index{getPointAddress@{getPointAddress}!hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}}
+\subsubsection{\texorpdfstring{getPointAddress()}{getPointAddress()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Road\+Guide.\+get\+Point\+Address (\begin{DoxyParamCaption}\item[{T\+Map\+Point}]{point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+get read address of the location 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & coordinate of the location \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 140 of file Road\+Guide.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{140                                                  \{}
+\DoxyCodeLine{141         tMapData.convertGpsToAddress(point.getLatitude(), point.getLongitude(), \textcolor{keyword}{new} TMapData.ConvertGPSToAddressListenerCallback() \{}
+\DoxyCodeLine{142             @Override}
+\DoxyCodeLine{143             \textcolor{keyword}{public} \textcolor{keywordtype}{void} onConvertToGPSToAddress(String strAddress) \{}
+\DoxyCodeLine{144                 Log.i(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a509b589225474dfb7864262b59a73019}{TAG}}, \textcolor{stringliteral}{"point 주소 : "} + strAddress);}
+\DoxyCodeLine{145                 addressList.add(strAddress);}
+\DoxyCodeLine{146                 \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_ae6a5b107e6391950548cb7f5c82eb728}{addressPOI}}(strAddress);}
+\DoxyCodeLine{147             \}}
+\DoxyCodeLine{148         \});}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a00e2b29e78e42d25e66d2858c4165cd1}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a00e2b29e78e42d25e66d2858c4165cd1}} 
+\index{hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}!getTurntype@{getTurntype}}
+\index{getTurntype@{getTurntype}!hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}}
+\subsubsection{\texorpdfstring{getTurntype()}{getTurntype()}}
+{\footnotesize\ttfamily String hi.\+world.\+hello.\+myapplication.\+Road\+Guide.\+get\+Turntype (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get turn type that user should know and do to go destination 
+
+
+
+Definition at line 64 of file Road\+Guide.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64                                 \{}
+\DoxyCodeLine{65         \textcolor{keywordflow}{if} (turntypeList.get(nextIndex) != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{66             \textcolor{keywordflow}{return} turntypeList.get(nextIndex);}
+\DoxyCodeLine{67         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{68             \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{69         \}}
+\DoxyCodeLine{70     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a8125d240bc324c49dca37ed23beb732c}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a8125d240bc324c49dca37ed23beb732c}} 
+\index{hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}!setIndex@{setIndex}}
+\index{setIndex@{setIndex}!hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}}
+\subsubsection{\texorpdfstring{setIndex()}{setIndex()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Road\+Guide.\+set\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+set indices including last, next, line index 
+
+
+
+Definition at line 72 of file Road\+Guide.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72                             \{}
+\DoxyCodeLine{73         lastIndex = 0;}
+\DoxyCodeLine{74         nextIndex = 1;}
+\DoxyCodeLine{75         lineIndex = 0;}
+\DoxyCodeLine{76     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_abaddcd57733c5c7633a8b2e3e47629f8}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_abaddcd57733c5c7633a8b2e3e47629f8}} 
+\index{hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}!setMyLocation@{setMyLocation}}
+\index{setMyLocation@{setMyLocation}!hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}}
+\subsubsection{\texorpdfstring{setMyLocation()}{setMyLocation()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Road\+Guide.\+set\+My\+Location (\begin{DoxyParamCaption}\item[{T\+Map\+Point}]{location }\end{DoxyParamCaption})}
+
+
+
+set current user\textquotesingle{}s location 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & of user \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 46 of file Road\+Guide.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46                                                   \{}
+\DoxyCodeLine{47         \textcolor{keywordflow}{if} (location != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{48             myLocation = location;}
+\DoxyCodeLine{49         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{50             Log.i(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a509b589225474dfb7864262b59a73019}{TAG}}, \textcolor{stringliteral}{"Location is null"});}
+\DoxyCodeLine{51         \}}
+\DoxyCodeLine{52     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_ac4a16eda56bb3cfbd5d4d3bf02a983c9}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_ac4a16eda56bb3cfbd5d4d3bf02a983c9}} 
+\index{hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}!stringToPoint@{stringToPoint}}
+\index{stringToPoint@{stringToPoint}!hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}}
+\subsubsection{\texorpdfstring{stringToPoint()}{stringToPoint()}}
+{\footnotesize\ttfamily T\+Map\+Point hi.\+world.\+hello.\+myapplication.\+Road\+Guide.\+string\+To\+Point (\begin{DoxyParamCaption}\item[{String}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+convert string address to coordinate point 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & real address \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 153 of file Road\+Guide.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{153                                                 \{}
+\DoxyCodeLine{154         String[] s = str.split(\textcolor{stringliteral}{","});}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156         Double lat = Double.parseDouble(s[1]);}
+\DoxyCodeLine{157         Double lon = Double.parseDouble(s[0]);}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159         \textcolor{keywordflow}{return} \textcolor{keyword}{new} TMapPoint(lat, lon);}
+\DoxyCodeLine{160     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_af87d3224240ef90fcb995287620684d7}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_af87d3224240ef90fcb995287620684d7}} 
+\index{hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}!toward@{toward}}
+\index{toward@{toward}!hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}}
+\subsubsection{\texorpdfstring{toward()}{toward()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Road\+Guide.\+toward (\begin{DoxyParamCaption}\item[{T\+Map\+Point}]{src,  }\item[{T\+Map\+Point}]{des }\end{DoxyParamCaption})}
+
+
+
+finding the path to destination 
+
+
+\begin{DoxyParams}{Parameters}
+{\em des} & destination information \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 100 of file Road\+Guide.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{100                                                     \{}
+\DoxyCodeLine{101         Log.i(\textcolor{stringliteral}{"시작"}, String.valueOf(src.getLatitude()) + \textcolor{stringliteral}{", "} + String.valueOf(src.getLongitude()));}
+\DoxyCodeLine{102         Log.i(\textcolor{stringliteral}{"목적"}, String.valueOf(des.getLatitude()) + \textcolor{stringliteral}{", "} + String.valueOf(des.getLongitude()));}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104         destination = des;}
+\DoxyCodeLine{105         passList.clear();}
+\DoxyCodeLine{106         addressList.clear();}
+\DoxyCodeLine{107         turntypeList.clear();}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109         tMapData.findPathDataAllType(TMapData.TMapPathType.CAR\_PATH, src, des, \textcolor{keyword}{new} TMapData.FindPathDataAllListenerCallback() \{}
+\DoxyCodeLine{110             @Override}
+\DoxyCodeLine{111             \textcolor{keyword}{public} \textcolor{keywordtype}{void} onFindPathDataAll(Document document) \{}
+\DoxyCodeLine{112                 Element root = document.getDocumentElement();}
+\DoxyCodeLine{113                 NodeList nodeListPlacemark = root.getElementsByTagName(\textcolor{stringliteral}{"Placemark"});}
+\DoxyCodeLine{114                 mPlacemark = nodeListPlacemark;}
+\DoxyCodeLine{115                 currentChild = mPlacemark.item(0).getChildNodes();}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nodeListPlacemark.getLength(); i++) \{}
+\DoxyCodeLine{118                     NodeList nodeListPlacemarkItem = nodeListPlacemark.item(i).getChildNodes();}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120                     \textcolor{comment}{//Log, placemark nodelist}}
+\DoxyCodeLine{121                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < nodeListPlacemarkItem.getLength(); j++) \{}
+\DoxyCodeLine{122                         \textcolor{keywordflow}{if} (nodeListPlacemarkItem.item(j).getNodeName().equals(\textcolor{stringliteral}{"Point"})) \{}
+\DoxyCodeLine{123                             TMapPoint tmp = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_ac4a16eda56bb3cfbd5d4d3bf02a983c9}{stringToPoint}}(nodeListPlacemarkItem.item(j).getTextContent().trim());}
+\DoxyCodeLine{124                             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_ad2c16f57da4010717fc637faa75d45ca}{getPointAddress}}(tmp);}
+\DoxyCodeLine{125                         \}}
+\DoxyCodeLine{126                         \textcolor{keywordflow}{if} (nodeListPlacemarkItem.item(j).getNodeName().equals(\textcolor{stringliteral}{"tmap:turnType"})) \{}
+\DoxyCodeLine{127                             turntypeList.add(nodeListPlacemarkItem.item(j).getTextContent().trim());}
+\DoxyCodeLine{128                         \}}
+\DoxyCodeLine{129                         \textcolor{keywordflow}{if} (nodeListPlacemarkItem.item(j).getNodeName().equals(\textcolor{stringliteral}{"tmap:distance"})) \{}
+\DoxyCodeLine{130                             distanceList.add(nodeListPlacemarkItem.item(j).getTextContent().trim());}
+\DoxyCodeLine{131                         \}}
+\DoxyCodeLine{132                     \}}
+\DoxyCodeLine{133                 \}}
+\DoxyCodeLine{134                 \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a8125d240bc324c49dca37ed23beb732c}{setIndex}}();}
+\DoxyCodeLine{135             \}}
+\DoxyCodeLine{136         \});}
+\DoxyCodeLine{137     \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a509b589225474dfb7864262b59a73019}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_road_guide_a509b589225474dfb7864262b59a73019}} 
+\index{hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}!TAG@{TAG}}
+\index{TAG@{TAG}!hi.world.hello.myapplication.RoadGuide@{hi.world.hello.myapplication.RoadGuide}}
+\subsubsection{\texorpdfstring{TAG}{TAG}}
+{\footnotesize\ttfamily final String hi.\+world.\+hello.\+myapplication.\+Road\+Guide.\+T\+AG = \char`\"{}Road\+Guide\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+debugging 
+
+
+
+Definition at line 21 of file Road\+Guide.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_road_guide_8java}{Road\+Guide.\+java}}\end{DoxyCompactItemize}

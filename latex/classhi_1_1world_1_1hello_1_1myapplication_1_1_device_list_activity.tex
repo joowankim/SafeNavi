@@ -1,0 +1,358 @@
+\hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity}{}\section{hi.\+world.\+hello.\+myapplication.\+Device\+List\+Activity Class Reference}
+\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity}\index{hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}}
+Inheritance diagram for hi.\+world.\+hello.\+myapplication.\+Device\+List\+Activity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity}
+\end{center}
+\end{figure}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static String \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_ab8c0c73b995417e0162ceb97cdf28a5d}{E\+X\+T\+R\+A\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+A\+D\+D\+R\+E\+SS}} = \char`\"{}device\+\_\+address\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a6d0313ab175b34a19dc6a6bf987a2b0f}{on\+Create}} (Bundle saved\+Instance\+State)
+\begin{DoxyCompactList}\small\item\em show device list that can be connected \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a0e6e1dfdd4e73c1e759f9c3f02f6bf64}{on\+Destroy}} ()
+\begin{DoxyCompactList}\small\item\em @ brief destrop bluetooth adapter service \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a5e5f542b8b5614616f5b759c6b46a3f0}{do\+Discovery}} ()
+\begin{DoxyCompactList}\small\item\em Start device discover with the Bluetooth\+Adapter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Bluetooth\+Adapter \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a85e13ad225a08d62f1ca14e00f12ff3f}{m\+Bt\+Adapter}}
+\begin{DoxyCompactList}\small\item\em Member fields. \end{DoxyCompactList}\item 
+Array\+Adapter$<$ String $>$ \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a64ba77faaac6b9e85e20822a85aa1392}{m\+New\+Devices\+Array\+Adapter}}
+\begin{DoxyCompactList}\small\item\em Newly discovered devices. \end{DoxyCompactList}\item 
+Adapter\+View.\+On\+Item\+Click\+Listener \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a6f2f4cd4c09ef11b49f95aafce654d9f}{m\+Device\+Click\+Listener}}
+\begin{DoxyCompactList}\small\item\em The on-\/click listener for all devices in the List\+Views. \end{DoxyCompactList}\item 
+final Broadcast\+Receiver \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_aa946e1b25658fa8217545409eccb9cbf}{m\+Receiver}}
+\begin{DoxyCompactList}\small\item\em The Broadcast\+Receiver that listens for discovered devices and changes the title when discovery is finished. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a54fe4b51cb417f2ceac0f57b1e21d991}{T\+AG}} = \char`\"{}Device\+List\+Activity\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This Activity appears as a dialog. It lists any paired devices and devices detected in the area after discovery. When a device is chosen by the user, the M\+AC address of the device is sent back to the parent Activity in the result Intent. 
+
+Definition at line 45 of file Device\+List\+Activity.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a5e5f542b8b5614616f5b759c6b46a3f0}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a5e5f542b8b5614616f5b759c6b46a3f0}} 
+\index{hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}!doDiscovery@{doDiscovery}}
+\index{doDiscovery@{doDiscovery}!hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}}
+\subsubsection{\texorpdfstring{doDiscovery()}{doDiscovery()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Device\+List\+Activity.\+do\+Discovery (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Start device discover with the Bluetooth\+Adapter. 
+
+
+\begin{DoxyItemize}
+\item Indicate scanning in the title
+\item Turn on sub-\/title for new devices
+\item If we\textquotesingle{}re already discovering, stop it
+\item Request discover from Bluetooth\+Adapter 
+\end{DoxyItemize}
+
+Definition at line 161 of file Device\+List\+Activity.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{161                                \{}
+\DoxyCodeLine{162         Log.d(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a54fe4b51cb417f2ceac0f57b1e21d991}{TAG}}, \textcolor{stringliteral}{"doDiscovery()"});}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164         \textcolor{comment}{// Indicate scanning in the title}}
+\DoxyCodeLine{165         setProgressBarIndeterminateVisibility(\textcolor{keyword}{true});}
+\DoxyCodeLine{166         setTitle(R.string.scanning);}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168         \textcolor{comment}{// Turn on sub-title for new devices}}
+\DoxyCodeLine{169         findViewById(R.id.title\_new\_devices).setVisibility(View.VISIBLE);}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171         \textcolor{comment}{// If we're already discovering, stop it}}
+\DoxyCodeLine{172         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a85e13ad225a08d62f1ca14e00f12ff3f}{mBtAdapter}}.isDiscovering()) \{}
+\DoxyCodeLine{173             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a85e13ad225a08d62f1ca14e00f12ff3f}{mBtAdapter}}.cancelDiscovery();}
+\DoxyCodeLine{174         \}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176         \textcolor{comment}{// Request discover from BluetoothAdapter}}
+\DoxyCodeLine{177         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a85e13ad225a08d62f1ca14e00f12ff3f}{mBtAdapter}}.startDiscovery();}
+\DoxyCodeLine{178     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a6d0313ab175b34a19dc6a6bf987a2b0f}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a6d0313ab175b34a19dc6a6bf987a2b0f}} 
+\index{hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}!onCreate@{onCreate}}
+\index{onCreate@{onCreate}!hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}}
+\subsubsection{\texorpdfstring{onCreate()}{onCreate()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Device\+List\+Activity.\+on\+Create (\begin{DoxyParamCaption}\item[{Bundle}]{saved\+Instance\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+show device list that can be connected 
+
+
+\begin{DoxyItemize}
+\item setup the window
+\item set result C\+A\+N\+C\+E\+L\+ED in case the user backs out
+\item initialize the button to perform device discovery
+\item initialize array adapter. One for already paired devices and
+\item one for newly discovered devices
+\item find and set up the List\+View for paired devices
+\item register for broadcasts when a device is discovered
+\item register for broadcasts when discovery has finished
+\item get the local bluetooth adapter
+\item get a set of currently paired devices, add each one to the array adapter 
+\end{DoxyItemize}
+
+Definition at line 79 of file Device\+List\+Activity.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{79                                                        \{}
+\DoxyCodeLine{80         super.onCreate(savedInstanceState);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82         \textcolor{comment}{// Setup the window}}
+\DoxyCodeLine{83         requestWindowFeature(Window.FEATURE\_INDETERMINATE\_PROGRESS);}
+\DoxyCodeLine{84         setContentView(R.layout.activity\_device\_list);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86         \textcolor{comment}{// Set result CANCELED in case the user backs out}}
+\DoxyCodeLine{87         setResult(Activity.RESULT\_CANCELED);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89         \textcolor{comment}{// Initialize the button to perform device discovery}}
+\DoxyCodeLine{90         Button scanButton = (Button) findViewById(R.id.button\_scan);}
+\DoxyCodeLine{91         scanButton.setOnClickListener(\textcolor{keyword}{new} View.OnClickListener() \{}
+\DoxyCodeLine{92             \textcolor{keyword}{public} \textcolor{keywordtype}{void} onClick(View v) \{}
+\DoxyCodeLine{93                 \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a5e5f542b8b5614616f5b759c6b46a3f0}{doDiscovery}}();}
+\DoxyCodeLine{94                 v.setVisibility(View.GONE);}
+\DoxyCodeLine{95             \}}
+\DoxyCodeLine{96         \});}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98         \textcolor{comment}{// Initialize array adapters. One for already paired devices and}}
+\DoxyCodeLine{99         \textcolor{comment}{// one for newly discovered devices}}
+\DoxyCodeLine{100         ArrayAdapter<String> pairedDevicesArrayAdapter =}
+\DoxyCodeLine{101                 \textcolor{keyword}{new} ArrayAdapter<String>(\textcolor{keyword}{this}, R.layout.device\_name);}
+\DoxyCodeLine{102         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a64ba77faaac6b9e85e20822a85aa1392}{mNewDevicesArrayAdapter}} = \textcolor{keyword}{new} ArrayAdapter<String>(\textcolor{keyword}{this}, R.layout.device\_name);}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104         \textcolor{comment}{// Find and set up the ListView for paired devices}}
+\DoxyCodeLine{105         ListView pairedListView = (ListView) findViewById(R.id.paired\_devices);}
+\DoxyCodeLine{106         pairedListView.setAdapter(pairedDevicesArrayAdapter);}
+\DoxyCodeLine{107         pairedListView.setOnItemClickListener(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a6f2f4cd4c09ef11b49f95aafce654d9f}{mDeviceClickListener}});}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109         \textcolor{comment}{// Find and set up the ListView for newly discovered devices}}
+\DoxyCodeLine{110         ListView newDevicesListView = (ListView) findViewById(R.id.new\_devices);}
+\DoxyCodeLine{111         newDevicesListView.setAdapter(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a64ba77faaac6b9e85e20822a85aa1392}{mNewDevicesArrayAdapter}});}
+\DoxyCodeLine{112         newDevicesListView.setOnItemClickListener(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a6f2f4cd4c09ef11b49f95aafce654d9f}{mDeviceClickListener}});}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114         \textcolor{comment}{// Register for broadcasts when a device is discovered}}
+\DoxyCodeLine{115         IntentFilter filter = \textcolor{keyword}{new} IntentFilter(BluetoothDevice.ACTION\_FOUND);}
+\DoxyCodeLine{116         this.registerReceiver(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_aa946e1b25658fa8217545409eccb9cbf}{mReceiver}}, filter);}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118         \textcolor{comment}{// Register for broadcasts when discovery has finished}}
+\DoxyCodeLine{119         filter = \textcolor{keyword}{new} IntentFilter(BluetoothAdapter.ACTION\_DISCOVERY\_FINISHED);}
+\DoxyCodeLine{120         this.registerReceiver(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_aa946e1b25658fa8217545409eccb9cbf}{mReceiver}}, filter);}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122         \textcolor{comment}{// Get the local Bluetooth adapter}}
+\DoxyCodeLine{123         \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a85e13ad225a08d62f1ca14e00f12ff3f}{mBtAdapter}} = BluetoothAdapter.getDefaultAdapter();}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125         \textcolor{comment}{// Get a set of currently paired devices}}
+\DoxyCodeLine{126         Set<BluetoothDevice> pairedDevices = \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a85e13ad225a08d62f1ca14e00f12ff3f}{mBtAdapter}}.getBondedDevices();}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128         \textcolor{comment}{// If there are paired devices, add each one to the ArrayAdapter}}
+\DoxyCodeLine{129         \textcolor{keywordflow}{if} (pairedDevices.size() > 0) \{}
+\DoxyCodeLine{130             findViewById(R.id.title\_paired\_devices).setVisibility(View.VISIBLE);}
+\DoxyCodeLine{131             \textcolor{keywordflow}{for} (BluetoothDevice device : pairedDevices) \{}
+\DoxyCodeLine{132                 pairedDevicesArrayAdapter.add(device.getName() + \textcolor{stringliteral}{"\(\backslash\)n"} + device.getAddress());}
+\DoxyCodeLine{133             \}}
+\DoxyCodeLine{134         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{135             String noDevices = getResources().getText(R.string.none\_paired).toString();}
+\DoxyCodeLine{136             pairedDevicesArrayAdapter.add(noDevices);}
+\DoxyCodeLine{137         \}}
+\DoxyCodeLine{138     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a0e6e1dfdd4e73c1e759f9c3f02f6bf64}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a0e6e1dfdd4e73c1e759f9c3f02f6bf64}} 
+\index{hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}!onDestroy@{onDestroy}}
+\index{onDestroy@{onDestroy}!hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}}
+\subsubsection{\texorpdfstring{onDestroy()}{onDestroy()}}
+{\footnotesize\ttfamily void hi.\+world.\+hello.\+myapplication.\+Device\+List\+Activity.\+on\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+@ brief destrop bluetooth adapter service 
+
+
+
+Definition at line 141 of file Device\+List\+Activity.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{141                                \{}
+\DoxyCodeLine{142         super.onDestroy();}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144         \textcolor{comment}{// Make sure we're not doing discovery anymore}}
+\DoxyCodeLine{145         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a85e13ad225a08d62f1ca14e00f12ff3f}{mBtAdapter}} != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{146             \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a85e13ad225a08d62f1ca14e00f12ff3f}{mBtAdapter}}.cancelDiscovery();}
+\DoxyCodeLine{147         \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149         \textcolor{comment}{// Unregister broadcast listeners}}
+\DoxyCodeLine{150         this.unregisterReceiver(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_aa946e1b25658fa8217545409eccb9cbf}{mReceiver}});}
+\DoxyCodeLine{151     \}}
+
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_ab8c0c73b995417e0162ceb97cdf28a5d}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_ab8c0c73b995417e0162ceb97cdf28a5d}} 
+\index{hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}!EXTRA\_DEVICE\_ADDRESS@{EXTRA\_DEVICE\_ADDRESS}}
+\index{EXTRA\_DEVICE\_ADDRESS@{EXTRA\_DEVICE\_ADDRESS}!hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}}
+\subsubsection{\texorpdfstring{EXTRA\_DEVICE\_ADDRESS}{EXTRA\_DEVICE\_ADDRESS}}
+{\footnotesize\ttfamily String hi.\+world.\+hello.\+myapplication.\+Device\+List\+Activity.\+E\+X\+T\+R\+A\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+A\+D\+D\+R\+E\+SS = \char`\"{}device\+\_\+address\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+Return Intent extra 
+
+Definition at line 55 of file Device\+List\+Activity.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a85e13ad225a08d62f1ca14e00f12ff3f}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a85e13ad225a08d62f1ca14e00f12ff3f}} 
+\index{hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}!mBtAdapter@{mBtAdapter}}
+\index{mBtAdapter@{mBtAdapter}!hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}}
+\subsubsection{\texorpdfstring{mBtAdapter}{mBtAdapter}}
+{\footnotesize\ttfamily Bluetooth\+Adapter hi.\+world.\+hello.\+myapplication.\+Device\+List\+Activity.\+m\+Bt\+Adapter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Member fields. 
+
+
+
+Definition at line 60 of file Device\+List\+Activity.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a6f2f4cd4c09ef11b49f95aafce654d9f}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a6f2f4cd4c09ef11b49f95aafce654d9f}} 
+\index{hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}!mDeviceClickListener@{mDeviceClickListener}}
+\index{mDeviceClickListener@{mDeviceClickListener}!hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}}
+\subsubsection{\texorpdfstring{mDeviceClickListener}{mDeviceClickListener}}
+{\footnotesize\ttfamily Adapter\+View.\+On\+Item\+Click\+Listener hi.\+world.\+hello.\+myapplication.\+Device\+List\+Activity.\+m\+Device\+Click\+Listener\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{keyword}{new} AdapterView.OnItemClickListener() \{}
+\DoxyCodeLine{        \textcolor{keyword}{public} \textcolor{keywordtype}{void} onItemClick(AdapterView<?> av, View v, \textcolor{keywordtype}{int} arg2, \textcolor{keywordtype}{long} arg3) \{}
+\DoxyCodeLine{            }
+\DoxyCodeLine{            \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a85e13ad225a08d62f1ca14e00f12ff3f}{mBtAdapter}}.cancelDiscovery();}
+\DoxyCodeLine{}
+\DoxyCodeLine{            }
+\DoxyCodeLine{            String info = ((TextView) v).getText().toString();}
+\DoxyCodeLine{            String address = info.substring(info.length() - 17);}
+\DoxyCodeLine{}
+\DoxyCodeLine{            }
+\DoxyCodeLine{            Intent intent = \textcolor{keyword}{new} Intent();}
+\DoxyCodeLine{            intent.putExtra(\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_ab8c0c73b995417e0162ceb97cdf28a5d}{EXTRA\_DEVICE\_ADDRESS}}, address);}
+\DoxyCodeLine{}
+\DoxyCodeLine{            }
+\DoxyCodeLine{            setResult(Activity.RESULT\_OK, intent);}
+\DoxyCodeLine{            finish();}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+The on-\/click listener for all devices in the List\+Views. 
+
+
+\begin{DoxyItemize}
+\item Cancel discovery because it\textquotesingle{}s costly and we\textquotesingle{}re about to connect
+\item Get the device M\+AC address, which is the last 17 chars in the View
+\item Create the result Intent and include the M\+AC address
+\item Set result and finish this Activity 
+\end{DoxyItemize}
+
+Definition at line 189 of file Device\+List\+Activity.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a64ba77faaac6b9e85e20822a85aa1392}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a64ba77faaac6b9e85e20822a85aa1392}} 
+\index{hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}!mNewDevicesArrayAdapter@{mNewDevicesArrayAdapter}}
+\index{mNewDevicesArrayAdapter@{mNewDevicesArrayAdapter}!hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}}
+\subsubsection{\texorpdfstring{mNewDevicesArrayAdapter}{mNewDevicesArrayAdapter}}
+{\footnotesize\ttfamily Array\+Adapter$<$String$>$ hi.\+world.\+hello.\+myapplication.\+Device\+List\+Activity.\+m\+New\+Devices\+Array\+Adapter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Newly discovered devices. 
+
+
+
+Definition at line 65 of file Device\+List\+Activity.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_aa946e1b25658fa8217545409eccb9cbf}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_aa946e1b25658fa8217545409eccb9cbf}} 
+\index{hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}!mReceiver@{mReceiver}}
+\index{mReceiver@{mReceiver}!hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}}
+\subsubsection{\texorpdfstring{mReceiver}{mReceiver}}
+{\footnotesize\ttfamily final Broadcast\+Receiver hi.\+world.\+hello.\+myapplication.\+Device\+List\+Activity.\+m\+Receiver\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{keyword}{new} BroadcastReceiver() \{}
+\DoxyCodeLine{        @Override}
+\DoxyCodeLine{        \textcolor{keyword}{public} \textcolor{keywordtype}{void} onReceive(Context context, Intent intent) \{}
+\DoxyCodeLine{            String action = intent.getAction();}
+\DoxyCodeLine{}
+\DoxyCodeLine{            }
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (BluetoothDevice.ACTION\_FOUND.equals(action)) \{}
+\DoxyCodeLine{                }
+\DoxyCodeLine{                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA\_DEVICE);}
+\DoxyCodeLine{                }
+\DoxyCodeLine{                \textcolor{keywordflow}{if} (device.getBondState() != BluetoothDevice.BOND\_BONDED) \{}
+\DoxyCodeLine{                    \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a64ba77faaac6b9e85e20822a85aa1392}{mNewDevicesArrayAdapter}}.add(device.getName() + \textcolor{stringliteral}{"\(\backslash\)n"} + device.getAddress());}
+\DoxyCodeLine{                \}}
+\DoxyCodeLine{                }
+\DoxyCodeLine{            \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (BluetoothAdapter.ACTION\_DISCOVERY\_FINISHED.equals(action)) \{}
+\DoxyCodeLine{                setProgressBarIndeterminateVisibility(\textcolor{keyword}{false});}
+\DoxyCodeLine{                setTitle(R.string.select\_device);}
+\DoxyCodeLine{                \textcolor{keywordflow}{if} (\mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a64ba77faaac6b9e85e20822a85aa1392}{mNewDevicesArrayAdapter}}.getCount() == 0) \{}
+\DoxyCodeLine{                    String noDevices = getResources().getText(R.string.none\_found).toString();}
+\DoxyCodeLine{                    \mbox{\hyperlink{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a64ba77faaac6b9e85e20822a85aa1392}{mNewDevicesArrayAdapter}}.add(noDevices);}
+\DoxyCodeLine{                \}}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+The Broadcast\+Receiver that listens for discovered devices and changes the title when discovery is finished. 
+
+
+\begin{DoxyItemize}
+\item When discovery finds a device
+\item Get the Bluetooth\+Device object from the Intent
+\item If it\textquotesingle{}s already paired, skip it, because it\textquotesingle{}s been listed already
+\item When discovery is finished, change the Activity title 
+\end{DoxyItemize}
+
+Definition at line 217 of file Device\+List\+Activity.\+java.
+
+\mbox{\Hypertarget{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a54fe4b51cb417f2ceac0f57b1e21d991}\label{classhi_1_1world_1_1hello_1_1myapplication_1_1_device_list_activity_a54fe4b51cb417f2ceac0f57b1e21d991}} 
+\index{hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}!TAG@{TAG}}
+\index{TAG@{TAG}!hi.world.hello.myapplication.DeviceListActivity@{hi.world.hello.myapplication.DeviceListActivity}}
+\subsubsection{\texorpdfstring{TAG}{TAG}}
+{\footnotesize\ttfamily final String hi.\+world.\+hello.\+myapplication.\+Device\+List\+Activity.\+T\+AG = \char`\"{}Device\+List\+Activity\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Tag for Log 
+
+Definition at line 50 of file Device\+List\+Activity.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/hi/world/hello/myapplication/\mbox{\hyperlink{_device_list_activity_8java}{Device\+List\+Activity.\+java}}\end{DoxyCompactItemize}
