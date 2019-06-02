@@ -29,52 +29,62 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+/// @class GpsService
+/// @brief managing GPS service
 public class GpsService extends Service implements LocationListener {
+   
+    private Context mContext = null;    ///< context
 
-    private Context mContext = null;
+    private static final String TAG = "GPS_TEST";   ///< debugging
 
-    private static final String TAG = "GPS_TEST";
+    private TMapData tMapData = new TMapData(); ///< TMap API data
+    private TMapPoint myLocation = null;    ///< current location
+    private TMapPoint end = null;           ///< target location
 
-    private TMapData tMapData = new TMapData();
-    private TMapPoint myLocation = null;    // current location
-    private TMapPoint end = null;           // target location
-
-    // whenever changing location, trying bluetooth communication
+    /// @brief whenever changing location, trying bluetooth communication
     private MessageHandler mMessageHandler = null;
 
-    // GPS ON/OFF
+    /// @brief GPS ON/OFF
     boolean isGPSEnabled = false;
 
-    // network ON/OFF
+    /// @brief network ON/OFF
     boolean isNetworkEnabled = false;
 
-    // current state of GPS
+    /// @brief current state of GPS
     boolean isGetLocation = false;
 
     Location location;
-    double lat; // latitude
-    double lon; // longitude
+    double lat; ///< latitude
+    double lon; ///< longitude
 
-    // minimum distance for updating GPS information : 10m
+    /// @brief minimum distance for updating GPS information : 10m
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
-    // minimum time for updating GPS information : 1 second
+    /// @brief minimum time for updating GPS information : 1 second
     private static final long MIN_TIME_BW_UPDATES = 1000 * 1;
 
-    protected LocationManager locationManager;
+    protected LocationManager locationManager;  ///< location manager
 
-    private RoadGuide roadGuide = null;
-
+    private RoadGuide roadGuide = null; ///< roadGuide object
+    
+    /// @brief constructor of GpsService
     public GpsService() {
 
     }
-
+    /// @brief constructor of GpsService
+    /// @param context context
+    /// @param msgService message handler service
     public GpsService(Context context, MessageHandler msgService) {
         this.mContext = context;
         this.mMessageHandler = msgService;
         roadGuide = new RoadGuide();
         getLocation();
     }
-
+    /// @brief get current location
+    /// @details
+    ///         - getting GPS information
+    ///         - getting current network state value
+    ///         - get location values from network information
+    /// @return current location
     @TargetApi(23)
     public Location getLocation(){
         if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -93,10 +103,9 @@ public class GpsService extends Service implements LocationListener {
             isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
             if (!isGPSEnabled && !isNetworkEnabled) {
-                //todo:GPS와 네트워크 사용이 가능하지 않을 떄
+                
             } else {
                 this.isGetLocation = true;
-                // 네트워크 정보로 부터 위치값 가져오기
                 if (isNetworkEnabled) {
                     locationManager.requestLocationUpdates(
                             LocationManager.NETWORK_PROVIDER,
@@ -107,7 +116,6 @@ public class GpsService extends Service implements LocationListener {
                         location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
                         if (location != null) {
-                            // 위도 경도 저장
                             lat = location.getLatitude();
                             lon = location.getLongitude();
                             roadGuide.setMyLocation(myLocation);
@@ -142,7 +150,7 @@ public class GpsService extends Service implements LocationListener {
     }
 
     /**
-     * @brief GPS 종료
+     * @brief stop GPS service
      */
     public void stopUsingGPS() {
         if (locationManager != null) {
@@ -151,8 +159,8 @@ public class GpsService extends Service implements LocationListener {
     }
 
     /**
-     * @brief 위도값을 가져온다
-     * @return 위도값
+     * @brief get latitude value
+     * @return latitude
      */
     public double getLatitude() {
         return lat;
@@ -160,28 +168,31 @@ public class GpsService extends Service implements LocationListener {
     }
 
     /**
-     * @brief 경도값을 가져온다
-     * @return 경도값
+     * @brief get longitude value
+     * @return longitude
      */
     public double getLongitude() {
         return lon;
     }
 
     /**
-     * @brief GPS나 wifi 정보가 켜져있는지 확인
-     * @return 현재위치
+     * @brief check GPS service or wifi is ON/OFF
+     * @return current location
      */
     public boolean isGetLocation() {
         return this.isGetLocation;
     }
-
+    /// @brief show alert window
+    /// @details
+    ///         - showing alert window alerting current GPS state
+    ///         - move to setting window for GPS setting
     public void showSettingAlert() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
 
         alertDialog.setTitle("GPS 사용유무세팅");
         alertDialog.setMessage("GPS 세팅이 되지 않았을 수 도 있습니다. \n 설정창으로 가시겠습니까?");
 
-        // OK를 누르면 설정창으로 이동합니다
+        // if press OK button, move to setting window
         alertDialog.setPositiveButton("Settings",
                 new DialogInterface.OnClickListener() {
                     @Override
@@ -191,7 +202,7 @@ public class GpsService extends Service implements LocationListener {
                     }
                 });
 
-        // cancel를 누르면 종료합니다
+        // cancel
         alertDialog.setNegativeButton("Cancel",
                 new DialogInterface.OnClickListener() {
                     @Override
@@ -207,7 +218,9 @@ public class GpsService extends Service implements LocationListener {
     public IBinder onBind(Intent intent) {
         throw new UnsupportedOperationException("Not yet implemented");
     }
-
+    /// @brief check the current location is changed
+    ///        and change current location information
+    ///        sending the location information to Bluetooth glasses
     public void onLocationChanged(Location location) {
         lat = location.getLatitude();
         lon = location.getLongitude();
@@ -241,7 +254,9 @@ public class GpsService extends Service implements LocationListener {
     public void onProviderDisabled(String provider) {
 
     }
-
+    /// @brief set destination from current location in roadGuide obejct
+    /// @param src current location
+    /// @param des destination location
     public synchronized void setDest(TMapPoint src, TMapPoint des) {
         end = des;
         myLocation = src;
@@ -249,16 +264,18 @@ public class GpsService extends Service implements LocationListener {
         roadGuide.toward(myLocation, end);
 
     }
-
+    /// @brief sending message that has information of turn types on the current location to Bluetooth glasses
+    /// @param dest destinatio location information
+    /// @return msg sended message
     public String updateGuide(TMapPoint dest) {
 
         TMapPOIItem next = roadGuide.getNextPOI();
         String turn = roadGuide.getTurntype();
-        // 기기로 보낼 메시지
+        // sent message
         String msg;
 
         if (next != null && turn != null) {
-            // 다음 경유지 POI까지 거리
+            // distance between src and nest POI
             int distance = (int)next.getDistance(myLocation);
 
             Log.i("updateGuide", "다음 경유지까지 거리 " + distance + "\n" + "다음 경유지에서의 회전 방향 " + turn);
@@ -274,7 +291,9 @@ public class GpsService extends Service implements LocationListener {
         return msg;
 
     }
-
+    /// @brief broadcast current location
+    /// @param la latitude
+    /// @param lo longitude
     private void sendBroadcast(double la, double lo) {
         Log.d("BroadcastGPS", "" + la + ", " + lo);
         Intent intent = new Intent("myLocation");
