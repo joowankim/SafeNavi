@@ -36,7 +36,8 @@ import android.widget.TextView;
 import java.util.Set;
 
 /**
- * This Activity appears as a dialog. It lists any paired devices and
+ * @class DeviceListActivity
+ * @details This Activity appears as a dialog. It lists any paired devices and
  * devices detected in the area after discovery. When a device is chosen
  * by the user, the MAC address of the device is sent back to the parent
  * Activity in the result Intent.
@@ -44,25 +45,36 @@ import java.util.Set;
 public class DeviceListActivity extends Activity {
 
     /**
-     * Tag for Log
+     * @static Tag for Log
      */
     private static final String TAG = "DeviceListActivity";
 
     /**
-     * Return Intent extra
+     * @static Return Intent extra
      */
     public static String EXTRA_DEVICE_ADDRESS = "device_address";
 
     /**
-     * Member fields
+     * @brief Member fields
      */
     private BluetoothAdapter mBtAdapter;
 
     /**
-     * Newly discovered devices
+     * @brief Newly discovered devices
      */
     private ArrayAdapter<String> mNewDevicesArrayAdapter;
-
+    /// @brief show device list that can be connected
+    /// @details 
+    ///        - setup the window
+    ///        - set result CANCELED in case the user backs out
+    ///        - initialize the button to perform device discovery
+    ///        - initialize array adapter. One for already paired devices and
+    ///        - one for newly discovered devices
+    ///        - find and set up the ListView for paired devices
+    ///        - register for broadcasts when a device is discovered
+    ///        - register for broadcasts when discovery has finished
+    ///        - get the local bluetooth adapter
+    ///        - get a set of currently paired devices, add each one to the array adapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,7 +136,7 @@ public class DeviceListActivity extends Activity {
             pairedDevicesArrayAdapter.add(noDevices);
         }
     }
-
+    /// @ brief destrop bluetooth adapter service
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -139,7 +151,12 @@ public class DeviceListActivity extends Activity {
     }
 
     /**
-     * Start device discover with the BluetoothAdapter
+     * @brief Start device discover with the BluetoothAdapter
+     * @details 
+     *          - Indicate scanning in the title
+     *          - Turn on sub-title for new devices
+     *          - If we're already discovering, stop it
+     *          - Request discover from BluetoothAdapter
      */
     private void doDiscovery() {
         Log.d(TAG, "doDiscovery()");
@@ -161,7 +178,12 @@ public class DeviceListActivity extends Activity {
     }
 
     /**
-     * The on-click listener for all devices in the ListViews
+     * @brief The on-click listener for all devices in the ListViews
+     * @details
+     *          - Cancel discovery because it's costly and we're about to connect
+     *          - Get the device MAC address, which is the last 17 chars in the View
+     *          - Create the result Intent and include the MAC address
+     *          - Set result and finish this Activity
      */
     private AdapterView.OnItemClickListener mDeviceClickListener
             = new AdapterView.OnItemClickListener() {
@@ -184,8 +206,13 @@ public class DeviceListActivity extends Activity {
     };
 
     /**
-     * The BroadcastReceiver that listens for discovered devices and changes the title when
+     * @brief The BroadcastReceiver that listens for discovered devices and changes the title when
      * discovery is finished
+     * @details
+     *          - When discovery finds a device
+     *          - Get the BluetoothDevice object from the Intent
+     *          - If it's already paired, skip it, because it's been listed already
+     *          - When discovery is finished, change the Activity title
      */
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
