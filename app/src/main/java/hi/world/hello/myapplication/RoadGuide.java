@@ -14,9 +14,11 @@ import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
 
+/// @class RoadGuide
+/// @brief get the information of the path and sent the data to Bluetooth glasses
 public class RoadGuide {
-
-    private static final String TAG = "RoadGuide";
+    /// @static
+    private static final String TAG = "RoadGuide";  ///< debugging
 
     TMapData tMapData = new TMapData();
     TMapPoint myLocation;
@@ -35,11 +37,12 @@ public class RoadGuide {
     int nextIndex;
     int lineIndex;
 
-    // constructors
+    /// @brief constructor of RoadGuide
     public RoadGuide() {
 
     }
-
+    /// @brief set current user's location
+    /// @param location of user
     public void setMyLocation(TMapPoint location) {
         if (location != null) {
             myLocation = location;
@@ -47,7 +50,8 @@ public class RoadGuide {
             Log.i(TAG, "Location is null");
         }
     }
-
+    /// @brief get next POIT in the path to destination
+    /// @return next POI in the path
     public TMapPOIItem getNextPOI() {
         Log.i("Size", passList.size() + ", " + addressList.size() + ", " + turntypeList.size());
         if (passList.get(nextIndex) != null) {
@@ -56,7 +60,7 @@ public class RoadGuide {
             return null;
         }
     }
-
+    /// @brief get turn type that user should know and do to go destination
     public String getTurntype() {
         if (turntypeList.get(nextIndex) != null) {
             return turntypeList.get(nextIndex);
@@ -64,18 +68,18 @@ public class RoadGuide {
             return null;
         }
     }
-
+    /// @brief set indices including last, next, line index
     private void setIndex() {
         lastIndex = 0;
         nextIndex = 1;
         lineIndex = 0;
     }
-
+    /// @brief change the pointing index of POI in path. The POI should be the nearest POI from current location
     public void changeIndex() {
 
-        // 내 위치에서 다음 경유지까지 거리
+        // distance between user's location and the next POI
         double toNextPOI = passList.get(nextIndex).getDistance(myLocation);
-        // 최근 경유지와 다음 경유지 사이 거리
+        // distance between recent POI and the next POI
         double inter = Double.parseDouble(distanceList.get(lineIndex));
 
         if (toNextPOI >= inter) {
@@ -90,8 +94,8 @@ public class RoadGuide {
     }
 
     /**
-     * @brief des까지의 경로찾기
-     * @param des 목적지
+     * @brief finding the path to destination
+     * @param des destination information
      */
     public void toward(TMapPoint src, TMapPoint des){
         Log.i("시작", String.valueOf(src.getLatitude()) + ", " + String.valueOf(src.getLongitude()));
@@ -113,7 +117,7 @@ public class RoadGuide {
                 for (int i = 0; i < nodeListPlacemark.getLength(); i++) {
                     NodeList nodeListPlacemarkItem = nodeListPlacemark.item(i).getChildNodes();
 
-                    //Log로 placemark nodelist 내용 확인하는 부분
+                    //Log, placemark nodelist
                     for (int j = 0; j < nodeListPlacemarkItem.getLength(); j++) {
                         if (nodeListPlacemarkItem.item(j).getNodeName().equals("Point")) {
                             TMapPoint tmp = stringToPoint(nodeListPlacemarkItem.item(j).getTextContent().trim());
@@ -131,7 +135,8 @@ public class RoadGuide {
             }
         });
     }
-
+    /// @brief get read address of the location
+    /// @param point coordinate of the location
     private void getPointAddress(TMapPoint point){
         tMapData.convertGpsToAddress(point.getLatitude(), point.getLongitude(), new TMapData.ConvertGPSToAddressListenerCallback() {
             @Override
@@ -143,7 +148,8 @@ public class RoadGuide {
         });
 
     }
-
+    /// @brief convert string address to coordinate point
+    /// @param str real address
     private TMapPoint stringToPoint(String str) {
         String[] s = str.split(",");
 
@@ -152,7 +158,8 @@ public class RoadGuide {
 
         return new TMapPoint(lat, lon);
     }
-
+    /// @brief get real address of POI
+    /// @param address real address
     private void addressPOI(String address) {
         tMapData.findAddressPOI(address, new TMapData.FindAddressPOIListenerCallback() {
             @Override
