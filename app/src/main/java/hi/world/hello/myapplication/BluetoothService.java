@@ -18,6 +18,8 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
+/// @class BluetoothService
+/// @brief managing Bluetooth connections
 public class BluetoothService {
     /// @static final
     private static final String TAG = "BluetoothService";   ///< for Debugging
