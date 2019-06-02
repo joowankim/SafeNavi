@@ -19,37 +19,38 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class BluetoothService {
-    // Debugging
-    private static final String TAG = "BluetoothService";
+    /// @static final
+    private static final String TAG = "BluetoothService";   ///< for Debugging
 
-    // Intent request code
-    private static final int REQUEST_CONNECT_DEVICE = 1;
-    private static final int REQUEST_ENABLE_BT = 2;
+    /// @static Intent request code
+    private static final int REQUEST_CONNECT_DEVICE = 1;    ///< request
+    private static final int REQUEST_ENABLE_BT = 2;         ///< permission
 
-    // RFCOMM Protocol
+    /// @static RFCOMM Protocol
     private static final UUID MY_UUID = UUID
-            .fromString("00001101-0000-1000-8000-00805F9B34FB");
+            .fromString("your UUID KEY");
+    
+    private BluetoothAdapter btAdapter; ///< bluetooth adapter
 
-    private BluetoothAdapter btAdapter;
+    private Activity mActivity; ///< context
+    private Handler mHandler;   ///< message handler
 
-    private Activity mActivity;
-    private Handler mHandler;
+    private ConnectThread mConnectThread; ///< connection thread
+    private ConnectedThread mConnectedThread; ///< check the state of connection
 
-    private ConnectThread mConnectThread; 
-    private ConnectedThread mConnectedThread; 
+    private int mState; ///< represent current state
 
-    private int mState;
+    // @static variables for states of bluetooth
+    public static final int STATE_NONE = 0; ///< we're doing nothing
+    public static final int STATE_LISTEN = 1; ///< now listening for incoming
+    // @static connections
+    public static final int STATE_CONNECTING = 2; ///< now initiating an outgoing
+    // @static connection
+    public static final int STATE_CONNECTED = 3; ///< now connected to a remote
 
-    // variables for states of bluetooth
-    public static final int STATE_NONE = 0; // we're doing nothing
-    public static final int STATE_LISTEN = 1; // now listening for incoming
-    // connections
-    public static final int STATE_CONNECTING = 2; // now initiating an outgoing
-    // connection
-    public static final int STATE_CONNECTED = 3; // now connected to a remote
-    // device
-
-    // Constructors
+    /// @brief Constructors
+    /// @param ac context
+    /// @param h message handler
     public BluetoothService(Activity ac, Handler h) {
         mActivity = ac;
         mHandler = h;
@@ -57,13 +58,13 @@ public class BluetoothService {
         // get BluetoothAdapter
         btAdapter = BluetoothAdapter.getDefaultAdapter();
     }
-
+    /// @brief get bluetooth adapter
     public BluetoothAdapter getBtAdapter() {
         return btAdapter;
     }
 
     /**
-     * Check the Bluetooth support
+     * @brief Check the Bluetooth support
      *
      * @return boolean
      */
@@ -83,7 +84,7 @@ public class BluetoothService {
     }
 
     /**
-     * Check the enabled Bluetooth
+     * @brief Check the enabled Bluetooth
      */
     public void enableBluetooth() {
         Log.i(TAG, "Check the enabled Bluetooth");
@@ -104,7 +105,7 @@ public class BluetoothService {
     }
 
     /**
-     * Available device search
+     * @brief Available device search
      */
     public void scanDevice() {
         Log.d(TAG, "Scan Device");
@@ -114,9 +115,10 @@ public class BluetoothService {
     }
 
     /**
-     * after scanning and get device info
-     *
-     * @param data
+     * @brief after scanning and get device info
+     * @details get the MAC addresses of each device that can be connected and 
+              objects of the devices
+     * @param data device list that can be connected through bluetooth
      */
     public void getDeviceInfo(Intent data) {
         // Get the device MAC address
@@ -129,17 +131,23 @@ public class BluetoothService {
         connect(device);
     }
 
-    // Bluetooth 상태 set
+    /** 
+     * @brief set the state of Bluetooth
+     * @param state current state
+     */
     private synchronized void setState(int state) {
         Log.d(TAG, "setState() " + mState + " -> " + state);
         mState = state;
     }
 
-    // Bluetooth 상태 get
+    /// @brief get the state of Bluetooth 
+    /// @param current state
     public synchronized int getState() {
         return mState;
     }
-
+    /// @brief connection start
+    /// @details if mConnectThread is null, it cancel any thread attempting to make a connection
+    ///         if mConnectedThread is null, it cancel any thread currently running a connection
     public synchronized void start() {
         Log.d(TAG, "start");
 
@@ -160,7 +168,10 @@ public class BluetoothService {
         }
     }
 
-    // Initialize ConnectThread (remove connection of device)
+    /// @brief Initialize ConnectThread (remove connection of device)
+    /// @details if this device is connected sth, it cancel any thread attempting to make a connection
+    ///         and it cancel any thread currently running a connection
+    /// @param device device name that will be tried to connect
     public synchronized void connect(BluetoothDevice device) {
         Log.d(TAG, "connect to: " + device);
 
@@ -189,7 +200,9 @@ public class BluetoothService {
         setState(STATE_CONNECTING);
     }
 
-    // Initialize ConnectedThread
+    /// @brief Initialize ConnectedThread
+    /// @param socket it it used to connect deivces
+    /// @param device taregt device name
     public synchronized void connected(BluetoothSocket socket,
                                        BluetoothDevice device) {
         Log.d(TAG, "connected");
@@ -217,7 +230,7 @@ public class BluetoothService {
         setState(STATE_CONNECTED);
     }
 
-    // all thread stop
+    /// @brief all thread stop
     public synchronized void stop() {
         Log.d(TAG, "stop");
 
@@ -234,7 +247,8 @@ public class BluetoothService {
         setState(STATE_NONE);
     }
 
-    // writing values (sending part)
+    /// @brief writing values (sending part)
+    /// @param out sent message string
     public void write(byte[] out) { // Create temporary object
         ConnectedThread r; // Synchronize a copy of the ConnectedThread
         synchronized (this) {
@@ -245,17 +259,35 @@ public class BluetoothService {
         r.write(out);
     }
 
-    // connection failed
+    /// @brief setting that connection state is failed
     private void connectionFailed() {
         setState(STATE_LISTEN);
     }
 
-    // connection lost
+    /// @brief setting that connection state is lost
     private void connectionLost() {
         setState(STATE_LISTEN);
 
     }
-
+    
+    /** @class ConnectThread
+     * @brief get a BluethoothSocket to connect with the given
+     * BluetoothDevice try { // MY_UUID is the app's UUID string, also
+     * used by the server // code tmp =
+     * device.createRfcommSocketToServiceRecord(MY_UUID);
+     *
+     * try { Method m = device.getClass().getMethod(
+     * "createInsecureRfcommSocket", new Class[] { int.class }); try {
+     * tmp = (BluetoothSocket) m.invoke(device, 15); } catch
+     * (IllegalArgumentException e) { // TODO Auto-generated catch block
+     * e.printStackTrace(); } catch (IllegalAccessException e) { // TODO
+     * Auto-generated catch block e.printStackTrace(); } catch
+     * (InvocationTargetException e) { // TODO Auto-generated catch
+     * block e.printStackTrace(); }
+     *
+     * } catch (NoSuchMethodException e) { // TODO Auto-generated catch
+     * block e.printStackTrace(); } } catch (IOException e) { } /
+     */
     private class ConnectThread extends Thread {
         private final BluetoothSocket mmSocket;
         private final BluetoothDevice mmDevice;
@@ -291,7 +323,10 @@ public class BluetoothService {
             }
             mmSocket = tmp;
         }
-
+        /// @brief work of ConnectThread
+        /// @details stop device searching before trying connection
+        ///          to prevent connection to be slower by searching devices
+        ///          try Bluetoothsocket connection
         public void run() {
             Log.i(TAG, "BEGIN mConnectThread");
             setName("ConnectThread");
@@ -331,7 +366,7 @@ public class BluetoothService {
             // start ConnectThread
             connected(mmSocket, mmDevice);
         }
-
+        /// @brief socket close
         public void cancel() {
             try {
                 mmSocket.close();
@@ -340,7 +375,8 @@ public class BluetoothService {
             }
         }
     }
-
+    /// @class ConnectedThread
+    /// @brief get inputstream and outputstream of bluetoothSocket
     private class ConnectedThread extends Thread {
         private final BluetoothSocket mmSocket;
         private final InputStream mmInStream;
@@ -363,7 +399,7 @@ public class BluetoothService {
             mmInStream = tmpIn;
             mmOutStream = tmpOut;
         }
-
+        /// @brief keep listening to the InputStream while connected
         public void run() {
             Log.i(TAG, "BEGIN mConnectedThread");
             byte[] buffer = new byte[1024];
@@ -384,10 +420,9 @@ public class BluetoothService {
         }
 
         /**
-         * Write to the connected OutStream.
+         * @brief Write to the connected OutStream.
          *
-         * @param buffer
-         *            The bytes to write
+         * @param buffer The bytes to write
          */
         public void write(byte[] buffer) {
             try {
@@ -398,7 +433,7 @@ public class BluetoothService {
                 Log.e(TAG, "Exception during write", e);
             }
         }
-
+        /// @brief socket close
         public void cancel() {
             try {
                 mmSocket.close();
