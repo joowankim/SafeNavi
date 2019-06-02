@@ -37,51 +37,54 @@ import com.skt.Tmap.TMapView;
 import java.util.ArrayList;
 import java.util.List;
 
+/// @class MainActivity
+/// @brief main task of this application
 public class MainActivity extends AppCompatActivity {
 
-    // 지도
+    ///< for map
     private LinearLayout linearLayoutTmap;
     private TMapView tMapView;
 
-    // 검색 리스트
+    ///< for searching list
     private List<TMapPOIItem> list;
     private EditText des;
     private ListView listview;
     private ListViewAdapter adapter;
 
-    // 경로 그리기
+    ///< for drawing path
     private TMapPOIItem endPOI;
     private String desPoint;
     private String choiceID;
     private boolean desInputKeyborad = true;
     private TMapPoint myLocation;
 
-    // 검색 버튼
+    ///< search button
     private Button searchBtn;
     private InputMethodManager imm;
 
-    // 길찾기 종료 버튼
+    ///< stop finding path button
     private Button stopBtn;
 
-    // GPS
-    private final int PERMISSIONS_ACCESS_FINE_LOCATION = 1000;
+    ///< for GPS service
+    private final int PERMISSIONS_ACCESS_FINE_LOCATION = 1000;  
     private final int PERMISSIONS_ACCESS_COARSE_LOCATION = 1001;
     private boolean isAccessFineLocation = false;
     private boolean isAccessCoarseLocation = false;
     private boolean isPermission = false;
 
-    // GPS Tracker class
+    ///< GPS Tracker class
     private GpsService gps;
 
-    // Intent request code
+    //</ Intent request code
     private static final int REQUEST_CONNECT_DEVICE = 1;
     private static final int REQUEST_ENABLE_BT = 2;
 
-    // bluetooth service
+    ///< bluetooth service
     private MessageHandler msgService = null;
     private BluetoothService btService = null;
     private Button connectBtn;
     private Button sendBtn;
+    /// @brief message handler between devices
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -89,10 +92,17 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    // road guide
+    ///< roadGuide
     private Button guideBtn;
 
-
+    /// @brief task of main activity
+    /// @details
+    ///         - drawing map
+    ///         - create BluetoothService
+    ///         - create list of search address
+    ///         - marking user's location on this map
+    ///         - get permission for GPS service 
+    ///         - drawing path on the map
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         tMapView = new TMapView(this);
@@ -277,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @brief 지도 그리기
+     * @brief drawing map
      * @param tMapView
      */
     public void drawMap(final TMapView tMapView){
@@ -285,9 +295,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @brief 지도에 경로를 그려준다
-     * @param tMapView      현재 보여지는 지도
-     * @param endPoint      목적지
+     * @brief drawing path on the map
+     * @param tMapView TMap
+     * @param endPoint destination location
      */
     public void drawPath(final TMapView tMapView, TMapPOIItem endPoint) {
 
@@ -313,7 +323,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @brief 실시간 POI 리스트 만들기
+     * @brief make real-time POI list
      * @param tMapData
      * @param searchPoint
      */
@@ -326,7 +336,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @brief 검색된 리스트 추가가
+     * @brief adding searched list
      * @param tMapData
      * @param searchPoint
      */
@@ -356,13 +366,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @brief 키보드 내리기
+     * @brief make keyboard invisible
      */
     private void hideKeyboard()
     {
         imm.hideSoftInputFromWindow(des.getWindowToken(), 0);
     }
-
+    /// @brief request permission for using GPS service
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
 
@@ -376,7 +386,7 @@ public class MainActivity extends AppCompatActivity {
             isPermission = true;
         }
     }
-
+    /// @brief call permission for using GPS service
     private void callPermission() {
         // Check the SDK version and whether the permission is already granted or not
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
