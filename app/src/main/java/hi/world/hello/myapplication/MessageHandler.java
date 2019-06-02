@@ -16,32 +16,37 @@ import android.widget.Toast;
 import static app.akexorcist.bluetotohspp.library.BluetoothState.REQUEST_CONNECT_DEVICE;
 import static app.akexorcist.bluetotohspp.library.BluetoothState.REQUEST_ENABLE_BT;
 
+/// @class MessageHandler
+/// @brief managing message handler
 public class MessageHandler extends Service {
+    /// @static
+    private static final String TAG = "MessageHandler"; ///< debugging
 
-    private static final String TAG = "MessageHandler";
+    private BluetoothAdapter mBluetoothAdapter = null;  ///< Local Bluetooth adapter
+    private BluetoothService mBluetoothService = null;  ///< Member object for the bluetooth services
 
-    private BluetoothAdapter mBluetoothAdapter = null;  // Local Bluetooth adapter
-    private BluetoothService mBluetoothService = null;  // Member object for the bluetooth services
+    private Activity mActivity;     ///< context
 
-    private Activity mActivity;
-
+    /// @brief constuctor of MessageHandler
     public MessageHandler() {
 
     }
-
+    /// @brief constructor of MessageHandler
+    /// @param ac context
+    /// @param btService current BluetoothService
     public MessageHandler(Activity ac, BluetoothService btService) {
         mActivity = ac;
         mBluetoothService = btService;
         mBluetoothAdapter = mBluetoothService.getBtAdapter();
     }
-
+    /// @brief initialize MessageHandler
     @Override
     public void onCreate() {
         super.onCreate();
 
         setupComm();
     }
-
+   
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
@@ -53,12 +58,12 @@ public class MessageHandler extends Service {
 
         return onStartCommand(intent, flags, startId);
     }
-
+    /// @brief initialize MessageHandler
     private void setupComm() {
         Log.d(TAG, "setupComm");
 
     }
-
+    /// @brief get current Bluetooth service
     public BluetoothService getmBluetoothService() {
         return mBluetoothService;
     }
@@ -76,7 +81,11 @@ public class MessageHandler extends Service {
     }
 
     /**
-     * @brief 메시지를 보냄
+     * @brief send message to Bluetooth glasses
+     * @details
+     *          - Check that we're actually connected before trying anything
+     *          - Check that there's actually something to send
+     *          - Get the message bytes and tell the BluetoothService to write
      * @param message a string of text to send
      */
     public void sendMessage(String message) {
@@ -93,7 +102,7 @@ public class MessageHandler extends Service {
             mBluetoothService.write(send);
         }
     }
-
+    /// @brief stop BluetoothService
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -101,7 +110,7 @@ public class MessageHandler extends Service {
             mBluetoothService.stop();
         }
     }
-
+    /// @brief make Bluetooth connection
     private void connectDevice(Intent data) {
         // Get the device MAC address
         String address = data.getExtras().getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
