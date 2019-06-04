@@ -1,16 +1,15 @@
 # Introduction
 - motivation
-
 - problem
 - solution
 - value
 
 # [How to use](https://github.com/kjw217/SafeNavi/wiki/HowToUse)
 
-# Library
-com.skt.Tmap_1.55.jar
+# Installation Environment
+com.skt.Tmap_1.55.jar [setting](http://tmapapi.sktelecom.com/main.html#android/guide/androidGuide.sample1)
 
-# Java classes
+# Java Classes
 **Class** | **Brief**
 ---|---
 [BluetoothService.java](https://github.com/kjw217/SafeNavi/wiki/BluetoothService) | management of Bluetooth service
