@@ -1,5 +1,5 @@
 # Introduction
-- motivation
+
 
 As the number of single-person households increases, the delivery market is also growing.
 
@@ -9,7 +9,6 @@ But most of them are delivered by motorcycle.
 
 The rate of accidents is increasing each year.
 
-- solution
 
 Most of the accidents are caused by one eye or another.
 
