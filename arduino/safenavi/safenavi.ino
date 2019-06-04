@@ -26,7 +26,6 @@ void setup() {
   mySerial.begin(9600);
   SSD1306_begin();
   SSD1306_clear(oled_buf);
-
 }
 
 
