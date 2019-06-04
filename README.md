@@ -38,3 +38,8 @@ com.skt.Tmap_1.55.jar [setting](http://tmapapi.sktelecom.com/main.html#android/g
 [RoadGuide.java](https://github.com/kjw217/SafeNavi/wiki/RoadGuide) | finding path and information from TMap API
 
 # Arduino
+We use ssd1306 header for showing some pictures in oled display.
+First, you have to unzip ssd1306.zip file. and then import ssd 1306.cpp and ssd1306.h.
+We already create some pictures converted in indexed 2-colors formatted c-array in 1306.cpp file.
+If you want to add other pictures in it, you can made it by converting bmp image file to indexed 2-colors formatted c-array in [here](https://littlevgl.com/image-to-c-array) 
+
