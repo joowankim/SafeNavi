@@ -3,14 +3,16 @@
 #include <Wire.h>
 #include "ssd1306.h"
 
-
-#define LED_PIN 13
 int bluetoothTx = 7;
-int bluetoothRx = 8;
+int bluetoothRx = 6;
 #define WIDTH     128
 #define HEIGHT     64
-SSD1306_begin();
-SSD1306_clear(oled_buf);
+
+#define OLED_RST    9 
+#define OLED_DC     8
+#define OLED_CS    10
+#define SPI_MOSI   11    /* connect to the DIN pin of OLED */
+#define SPI_SCK    13     /* connect to the CLK pin of OLED */
 
 SoftwareSerial mySerial(bluetoothTx, bluetoothRx); // RX, TX  
 // Connect HM10      Arduino Uno
