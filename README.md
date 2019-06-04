@@ -10,7 +10,7 @@
 # java classes
 **class** | **brief**
 ---|---
-BluetoothService.java[a link](https://github.com/user/repo/blob/branch/other_file.md) | management of Bluetooth service 
+BluetoothService.java [here] | management of Bluetooth service 
 DeviceListActivity.java | showing device list
 GpsService.java | management of GPS information
 ListViewAdapter.java | managing ListView elements
