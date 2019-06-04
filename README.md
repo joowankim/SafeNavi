@@ -1,8 +1,26 @@
 # Introduction
 - motivation
-- problem
+
+As the number of single-person households increases, the delivery market is also growing.
+
+Therefore, sales of delivery apps are growing tremendously.
+
+But most of them are delivered by motorcycle.
+
+The rate of accidents is increasing each year.
+
 - solution
-- value
+
+Most of the accidents are caused by one eye or another.
+
+For example, you watch a navigation with your cell phone or poor driving.
+
+That's where our thoughts began.
+
+How can we minimize driver accidents?
+
+So we made an eyeglass hud using an aduino and include a navigation function.
+
 
 # [How to use](https://github.com/kjw217/SafeNavi/wiki/HowToUse)
 
